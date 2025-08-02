@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>FreshWay FMCG Portfolio</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .banner-img {
+            height: 320px;
+            object-fit: cover;
+            width: 100%;
+        }
+
+        .product-card img {
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .logo-img {
+            height: 48px;
+        }
+
+        .bg-light-green {
+            background: #e8f5e9;
+        }
+
+        section {
+            padding-top: 70px;
+        }
+
+        @media (max-width: 576px) {
+            .banner-img {
+                height: 180px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success fixed-top shadow-sm py-3">
+        <div class="container">
+            <!-- Logo & Brand -->
+            <a class="navbar-brand d-flex align-items-center fw-bold" href="#">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/Food-Logo.png" alt="FreshWay Logo"
+                    class="me-2" style="height: 40px;">
+                <span>FreshWay <span class="text-warning">FMCG</span></span>
+            </a>
+
+            <!-- Toggler for mobile -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Nav Items -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active fw-semibold" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-semibold" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-semibold" href="#products">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-semibold" href="#clients">Clients</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-semibold" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- Home Section -->
+    <section id="home" class="bg-light-green pt-5 mt-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <!-- Text Section -->
+                <div class="col-lg-6 text-center text-lg-start mb-4 mb-lg-0">
+                    <h1 class="display-4 fw-bold text-success">FreshWay FMCG</h1>
+                    <p class="lead text-dark mb-4">
+                        Delivering freshness and quality home essentials across continents—every single day.
+                    </p>
+                    <a href="#products" class="btn btn-success btn-lg px-4 shadow-sm">
+                        Explore Products
+                    </a>
+                </div>
+
+                <!-- Image Section -->
+                <div class="col-lg-6 text-center">
+                    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80"
+                        alt="Fresh FMCG Products" class="img-fluid rounded-4 shadow-lg">
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- About Section -->
+    <section id="about" class="bg-white pt-5 mt-5">
+        <div class="container py-5">
+            <div class="row align-items-center g-5">
+
+                <!-- Image Column -->
+                <div class="col-md-6">
+                    <img src="https://images.unsplash.com/photo-1584941151659-4c65aa6e8da2?auto=format&fit=crop&w=800&q=80"
+                        alt="Fresh FMCG Operations" class="img-fluid rounded-4 shadow-lg">
+                </div>
+
+                <!-- Text Column -->
+                <div class="col-md-6">
+                    <h2 class="fw-bold mb-4 text-success">Who We Are</h2>
+                    <p class="mb-4 lead text-muted">
+                        At <strong>FreshWay FMCG</strong>, we are passionate about delivering high-quality consumer
+                        goods to homes across Asia, Africa, and beyond. From packaged foods and beverages to innovative
+                        cleaning solutions, we serve millions of households with products they trust.
+                    </p>
+
+                    <div class="row">
+                        <div class="col-12">
+                            <ul class="list-group list-group-flush border rounded shadow-sm">
+                                <li class="list-group-item"><strong>Founded:</strong> 2005</li>
+                                <li class="list-group-item"><strong>Employees:</strong> 4,500+</li>
+                                <li class="list-group-item"><strong>Global Reach:</strong> 25+ countries</li>
+                                <li class="list-group-item"><strong>Core Products:</strong> Foods, Beverages, Cleaning
+                                    Essentials</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Products Section -->
+    <section id="products" class="bg-light-green pt-5 mt-5">
+        <div class="container py-5">
+            <h2 class="text-center fw-bold text-success mb-5">Our Products</h2>
+
+            <div class="row g-4">
+                <!-- Product 1 -->
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow rounded-4">
+                        <img src="https://images.unsplash.com/photo-1528825871115-3581a5387919?auto=format&fit=crop&w=600&q=80"
+                            class="card-img-top rounded-top" alt="Sunrise Cereal"
+                            style="height: 250px; object-fit: cover;">
+                        <div class="card-body">
+                            <h5 class="card-title fw-semibold">Sunrise Cereal</h5>
+                            <p class="card-text text-muted">A nutritious breakfast cereal, packed with whole grains and
+                                vitamins. Start your day the healthy way.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow rounded-4">
+                        <img src="https://images.unsplash.com/photo-1519864600265-abb248a4b035?auto=format&fit=crop&w=600&q=80"
+                            class="card-img-top rounded-top" alt="PureSpring Water"
+                            style="height: 250px; object-fit: cover;">
+                        <div class="card-body">
+                            <h5 class="card-title fw-semibold">PureSpring Water</h5>
+                            <p class="card-text text-muted">Naturally filtered Himalayan mineral water. Pure hydration
+                                trusted by families around the world.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow rounded-4">
+                        <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80"
+                            class="card-img-top rounded-top" alt="ZestClean Detergent"
+                            style="height: 250px; object-fit: cover;">
+                        <div class="card-body">
+                            <h5 class="card-title fw-semibold">ZestClean Detergent</h5>
+                            <p class="card-text text-muted">Eco-friendly formula with powerful stain-fighting
+                                technology. Bright clothes, gentle care.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Clients Section -->
+    <!-- Clients Section -->
+    <section id="clients" class="bg-white pt-5 mt-5">
+        <div class="container py-5">
+            <h2 class="text-center fw-bold text-success mb-5">Our Trusted Clients</h2>
+
+            <div class="row g-4 justify-content-center">
+                <!-- Client 1 -->
+                <div class="col-6 col-md-3 text-center">
+                    <div class="p-4 border rounded shadow-sm h-100">
+                        <img src="https://img.icons8.com/color/96/000000/shop.png" alt="SuperMart Retailers"
+                            class="mb-3" style="height: 64px;">
+                        <h6 class="fw-semibold text-muted mb-0">SuperMart Retailers</h6>
+                    </div>
+                </div>
+
+                <!-- Client 2 -->
+                <div class="col-6 col-md-3 text-center">
+                    <div class="p-4 border rounded shadow-sm h-100">
+                        <img src="https://img.icons8.com/color/96/000000/delivery.png" alt="DailyFresh Distributors"
+                            class="mb-3" style="height: 64px;">
+                        <h6 class="fw-semibold text-muted mb-0">DailyFresh Distributors</h6>
+                    </div>
+                </div>
+
+                <!-- Client 3 -->
+                <div class="col-6 col-md-3 text-center">
+                    <div class="p-4 border rounded shadow-sm h-100">
+                        <img src="https://img.icons8.com/color/96/000000/business-network.png"
+                            alt="Global Trade Partners" class="mb-3" style="height: 64px;">
+                        <h6 class="fw-semibold text-muted mb-0">Global Trade Partners</h6>
+                    </div>
+                </div>
+
+                <!-- Client 4 -->
+                <div class="col-6 col-md-3 text-center">
+                    <div class="p-4 border rounded shadow-sm h-100">
+                        <img src="https://img.icons8.com/color/96/000000/hospital-3.png" alt="HealthHub Stores"
+                            class="mb-3" style="height: 64px;">
+                        <h6 class="fw-semibold text-muted mb-0">HealthHub Stores</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Contact Section -->
+    <!-- Contact Section -->
+    <!-- Contact Section -->
+    <section id="contact" class="bg-light-green pt-5 mt-5">
+        <div class="container py-5">
+            <h2 class="text-center fw-bold text-success mb-5">Contact Us</h2>
+
+            <div class="row justify-content-center align-items-start g-5">
+                <!-- Contact Form -->
+                <div class="col-lg-6">
+                    <form id="contactForm" class="bg-white p-4 p-md-5 rounded-4 shadow-sm">
+                        <div class="mb-4">
+                            <label for="name" class="form-label fw-semibold">Your Name</label>
+                            <input type="text" class="form-control form-control-lg" id="name" placeholder="John Doe"
+                                required />
+                        </div>
+                        <div class="mb-4">
+                            <label for="email" class="form-label fw-semibold">Your Email</label>
+                            <input type="email" class="form-control form-control-lg" id="email"
+                                placeholder="you@example.com" required />
+                        </div>
+                        <div class="mb-4">
+                            <label for="message" class="form-label fw-semibold">Your Message</label>
+                            <textarea class="form-control form-control-lg" id="message" rows="4"
+                                placeholder="Write your message..." required></textarea>
+                        </div>
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-success btn-lg shadow-sm">Send Message</button>
+                        </div>
+                        <div id="formMessage" class="mt-4 text-success fw-bold text-center"></div>
+                    </form>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="col-lg-5">
+                    <div class="bg-white p-4 p-md-5 rounded-4 shadow-sm h-100">
+                        <h4 class="fw-bold mb-4 text-success">Reach Us At</h4>
+                        <p class="mb-3"><i class="bi bi-envelope-fill me-2 text-success"></i> <strong>Email:</strong>
+                            info@freshwayfmcg.com</p>
+                        <p class="mb-3"><i class="bi bi-telephone-fill me-2 text-success"></i> <strong>Phone:</strong>
+                            +91-800-555-0199</p>
+                        <p class="mb-0"><i class="bi bi-geo-alt-fill me-2 text-success"></i>
+                            <strong>Address:</strong><br>
+                            123, FMCG Avenue,<br>Mumbai, India</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Footer -->
+    <footer class="bg-success text-white text-center py-3 mt-5">
+        &copy; 2025 FreshWay FMCG. All rights reserved.
+    </footer>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Contact form handler
+        document.getElementById('contactForm').onsubmit = function (event) {
+            event.preventDefault();
+            document.getElementById('formMessage').textContent = "Thank you! We'll contact you soon.";
+            this.reset();
+        };
+
+        // Smooth scroll for nav links
+        document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
+            link.addEventListener('click', function (e) {
+                const sec = document.querySelector(this.getAttribute('href'));
+                if (sec) {
+                    e.preventDefault();
+                    window.scrollTo({
+                        top: sec.offsetTop - 65,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

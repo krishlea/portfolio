@@ -1,0 +1,44 @@
+.navbar-nav .nav-link:hover {
+  color: #ffc107 !important; /* Golden yellow on hover */
+  transition: 0.3s ease;
+}
+section {
+  scroll-margin-top: 100px; /* Prevents anchor links from going under navbar */
+}
+.navbar-brand img {
+  max-height: 40px;
+}
+
+
+#home, #about, #products, #clients, #contact {
+  padding-top: 100px; /* Adjust according to navbar height */
+}
+
+.bg-light-green {
+  background-color: #e9f9ef; /* Light green */
+}
+
+.btn-success {
+  background-color: #28a745;
+  border-color: #28a745;
+}
+
+.btn-success:hover {
+  background-color: #218838;
+  border-color: #1e7e34;
+}
+
+/* About section */
+.rounded-4 {
+  border-radius: 1rem;
+}
+
+
+/* Product Section */
+.bg-light-green {
+  background-color: #e9f9ef;
+}
+
+.rounded-4 {
+  border-radius: 1rem;
+}
