@@ -6,139 +6,607 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Krishlea | Healthy Snacks for Every Home</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
   <style>
+    /* === CSS Variables for Consistent Design System === */
+    :root {
+      /* Color Palette - Apple-inspired, Natural, Premium */
+      --primary: #2D6A3E;
+      --primary-light: #4A8A5E;
+      --primary-lighter: #6FA880;
+      --secondary: #C99A6E;
+      --accent: #E8D5C4;
+      --bg-cream: #FBFBFD;
+      --bg-light: #F5F5F7;
+      --text-dark: #1d1d1f;
+      --text-muted: #86868b;
+      --white: #FFFFFF;
+
+      /* Typography - Elegant & Modern */
+      --font-heading: 'Cormorant Garamond', Georgia, serif;
+      --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+      /* Spacing System (Apple's 4px grid) */
+      --space-xs: 0.5rem;    /* 8px */
+      --space-sm: 1rem;      /* 16px */
+      --space-md: 1.5rem;    /* 24px */
+      --space-lg: 2rem;      /* 32px */
+      --space-xl: 3rem;      /* 48px */
+      --space-2xl: 5rem;     /* 80px */
+
+      /* Border Radius - Apple style */
+      --radius-sm: 10px;
+      --radius-md: 18px;
+      --radius-lg: 28px;
+
+      /* Transitions - Apple's smooth curves */
+      --transition-fast: 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      --transition-base: 350ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      --transition-slow: 600ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+      /* Shadows - Apple's subtle depth */
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.06);
+      --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.06);
+      --shadow-lg: 0 10px 24px rgba(0, 0, 0, 0.08), 0 4px 8px rgba(0, 0, 0, 0.05);
+      --shadow-xl: 0 20px 48px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.06);
+    }
+
+    /* === Base Styles === */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
-      font-family: 'Segoe UI', sans-serif;
+      font-family: var(--font-body);
+      color: var(--text-dark);
+      background-color: var(--white);
+      line-height: 1.47059;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
 
-    .banner-img {
-      height: 320px;
-      object-fit: cover;
-      width: 100%;
+    /* Typography - Apple style */
+    h1, h2, h3, h4, h5, h6 {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      line-height: 1.0834933333;
+      letter-spacing: -0.003em;
     }
 
-    .product-card img {
-      height: 200px;
-      object-fit: contain;
-      width: 100%;
-      padding: 10px;
+    h1 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 700;
+      letter-spacing: -0.015em;
+    }
+    h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+    h5 {
+      font-size: 1.375rem;
+      font-weight: 600;
+      letter-spacing: 0em;
     }
 
-    .bg-light-green {
-      background: #f0fdf4;
+    p {
+      font-size: 1.0625rem;
+      line-height: 1.47059;
+      font-weight: 400;
+      letter-spacing: -0.016em;
     }
 
+    .lead {
+      font-size: clamp(1.1875rem, 2vw, 1.3125rem);
+      font-weight: 400;
+      line-height: 1.38105;
+      letter-spacing: -0.01em;
+    }
+
+    /* === Section Spacing === */
     section {
-      padding-top: 80px;
+      padding: var(--space-2xl) 0;
+      position: relative;
     }
 
-    @media (max-width: 576px) {
-      .banner-img {
-        height: 180px;
+    @media (max-width: 768px) {
+      section {
+        padding: var(--space-xl) 0;
       }
+    }
+
+    /* === Navbar - Apple style === */
+    .navbar {
+      backdrop-filter: saturate(180%) blur(20px);
+      background: rgba(45, 106, 62, 0.72) !important;
+      padding: 0.75rem 0;
+      transition: all var(--transition-base);
+      border-bottom: 0.5px solid rgba(255, 255, 255, 0.18);
+    }
+
+    .navbar-brand {
+      font-family: var(--font-heading);
+      font-size: 1.375rem;
+      font-weight: 600;
+      letter-spacing: -0.005em;
+      color: var(--white) !important;
+      transition: opacity var(--transition-fast);
+    }
+
+    .navbar-brand:hover {
+      opacity: 0.8;
+    }
+
+    .nav-link {
+      font-weight: 400;
+      font-size: 0.875rem;
+      padding: 0.5rem 1.125rem !important;
+      color: rgba(255, 255, 255, 0.92) !important;
+      position: relative;
+      transition: color var(--transition-fast);
+      letter-spacing: -0.01em;
+    }
+
+    .nav-link::after {
+      display: none;
+    }
+
+    .nav-link:hover {
+      color: rgba(255, 255, 255, 1) !important;
+    }
+
+    /* === Backgrounds === */
+    .bg-light-green {
+      background: linear-gradient(135deg, var(--bg-cream) 0%, var(--bg-light) 100%);
+    }
+
+    /* === Buttons - Apple style === */
+    .btn {
+      padding: 0.75rem 1.375rem;
+      font-weight: 400;
+      font-size: 1.0625rem;
+      border-radius: 980px;
+      transition: all var(--transition-base);
+      letter-spacing: -0.01em;
+      border: none;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-success {
+      background: var(--primary);
+      color: var(--white);
+      box-shadow: none;
+      border: 1px solid transparent;
+    }
+
+    .btn-success:hover {
+      background: var(--primary-light);
+      transform: scale(1.02);
+      box-shadow: none;
+    }
+
+    .btn-outline-success {
+      border: 1.5px solid var(--primary);
+      color: var(--primary);
+      background: transparent;
+    }
+
+    .btn-outline-success:hover {
+      background: var(--primary);
+      color: var(--white);
+      transform: scale(1.02);
+    }
+
+    /* === Product Cards - Apple style === */
+    .product-card-new {
+      background: var(--white);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      transition: all var(--transition-base);
+      height: 100%;
+      box-shadow: var(--shadow-sm);
+      border: 0.5px solid rgba(0, 0, 0, 0.04);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .product-card-new:hover {
+      transform: scale(1.015) translateY(-4px);
+      box-shadow: var(--shadow-lg);
+      border-color: rgba(0, 0, 0, 0.08);
+    }
+
+    .product-image-wrapper {
+      position: relative;
+      overflow: hidden;
+      background: transparent;
+      padding: var(--space-lg);
+      height: 320px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .product-image {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      transition: transform var(--transition-slow);
+    }
+
+    .product-card-new:hover .product-image {
+      transform: scale(1.04);
+    }
+
+    .product-badge {
+      position: absolute;
+      top: 0.875rem;
+      left: 0.875rem;
+      background: rgba(45, 106, 62, 0.88);
+      color: var(--white);
+      padding: 0.3125rem 0.75rem;
+      border-radius: 6.4px;
+      font-size: 0.6875rem;
+      font-weight: 500;
+      letter-spacing: -0.003em;
+      text-transform: none;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+      backdrop-filter: saturate(180%) blur(10px);
+    }
+
+    .badge-new {
+      background: rgba(201, 154, 110, 0.88);
+      color: var(--white);
+    }
+
+    .product-content {
+      padding: var(--space-lg) var(--space-md);
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .product-title {
+      font-family: var(--font-heading);
+      color: var(--text-dark);
+      margin-bottom: var(--space-sm);
+      font-weight: 600;
+      font-size: 1.5rem;
+    }
+
+    .product-description {
+      color: var(--text-muted);
+      margin-bottom: var(--space-md);
+      font-size: 0.9375rem;
+      line-height: 1.7;
+      flex-grow: 1;
+    }
+
+    .product-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: var(--space-sm);
+      border-top: 1px solid rgba(61, 107, 74, 0.1);
+      margin-top: auto;
+    }
+
+    .product-weight {
+      color: var(--text-muted);
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+
+    .btn-add-cart {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 400;
+      font-size: 0.9375rem;
+      padding: 0.4375rem 1rem;
+      border-radius: 980px;
+      transition: all var(--transition-fast);
+      border: 1.5px solid var(--primary);
+      background: transparent;
+      display: inline-block;
+      letter-spacing: -0.01em;
+    }
+
+    .btn-add-cart:hover {
+      background: var(--primary);
+      color: var(--white);
+      transform: scale(1.04);
+    }
+
+    /* === Images === */
+    .hero-image {
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-lg);
+      animation: fadeInUp 0.8s ease-out;
+    }
+
+    .about-image {
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-md);
+      animation: fadeInLeft 0.8s ease-out;
+    }
+
+    /* === Form Styles - Apple style === */
+    .form-control {
+      border: 0.5px solid rgba(0, 0, 0, 0.15);
+      border-radius: var(--radius-sm);
+      padding: 0.6875rem 0.875rem;
+      font-size: 1.0625rem;
+      transition: all var(--transition-fast);
+      background: var(--white);
+      font-weight: 400;
+      letter-spacing: -0.016em;
+    }
+
+    .form-control:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(45, 106, 62, 0.12);
+      outline: none;
+      background: var(--white);
+    }
+
+    .form-label {
+      color: var(--text-dark);
+      font-weight: 400;
+      margin-bottom: 0.375rem;
+      font-size: 0.9375rem;
+      letter-spacing: -0.01em;
+    }
+
+    /* === Animations === */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    /* Scroll animations */
+    .animate-on-scroll {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease-out;
+    }
+
+    .animate-on-scroll.animated {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* === Text Colors === */
+    .text-primary-custom {
+      color: var(--primary) !important;
+    }
+
+    .text-muted-custom {
+      color: var(--text-muted) !important;
+    }
+
+    /* === Footer === */
+    footer {
+      background: var(--primary);
+      color: var(--white);
+      padding: var(--space-lg) 0;
+      font-size: 0.9375rem;
+      letter-spacing: 0.03em;
+    }
+
+    /* === Utility Classes === */
+    .shadow-custom {
+      box-shadow: var(--shadow-md);
+    }
+
+    .rounded-custom {
+      border-radius: var(--radius-md);
+    }
+
+    /* === Responsive === */
+    @media (max-width: 768px) {
+      .btn {
+        padding: var(--space-sm) var(--space-md);
+      }
+
+      h1 { font-size: 2.5rem; }
+      h2 { font-size: 2rem; }
+    }
+
+    /* === Smooth Scroll === */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* === Selection === */
+    ::selection {
+      background: var(--primary-lighter);
+      color: var(--white);
     }
   </style>
 </head>
 
 <body>
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-success fixed-top shadow-sm py-3">
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top">
     <div class="container">
-      <a class="navbar-brand fw-bold text-white" href="#">Krishlea</a>
+      <a class="navbar-brand" href="#">Krishlea</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
       </button>
 
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link text-white fw-semibold" href="#home">Home</a></li>
-          <li class="nav-item"><a class="nav-link text-white fw-semibold" href="#about">About</a></li>
-          <li class="nav-item"><a class="nav-link text-white fw-semibold" href="#products">Shop</a></li>
-          <li class="nav-item"><a class="nav-link text-white fw-semibold" href="#contact">Contact</a></li>
+          <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#products">Shop</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
         </ul>
       </div>
     </div>
   </nav>
 
   <!-- Hero Section -->
-  <section id="home" class="bg-light-green pt-5 mt-5">
+  <section id="home" class="bg-light-green" style="padding-top: 120px;">
     <div class="container">
-      <div class="row align-items-center">
-        <div class="col-lg-6 text-center text-lg-start">
-          <h1 class="display-4 fw-bold text-success">Healthy Snacking Starts Here</h1>
-          <p class="lead text-dark mb-4">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-6 text-center text-lg-start animate-on-scroll">
+          <h1 class="text-primary-custom mb-4">Healthy Snacking<br>Starts Here</h1>
+          <p class="lead text-muted-custom mb-5">
             Welcome to Krishlea — your source for natural, tasty, and wholesome snacks like makhana, black rice & more.
           </p>
-          <a href="#products" class="btn btn-success btn-lg px-4 shadow-sm">Shop Now</a>
+          <a href="#products" class="btn btn-success btn-lg">Discover Our Collection</a>
         </div>
-        <div class="col-lg-6 text-center">
-          <img src="https://images.unsplash.com/photo-1601043776176-f6e2a5f492ec?auto=format&fit=crop&w=800&q=80"
-            alt="Healthy Snacks" class="img-fluid rounded-4 shadow-lg">
+        <div class="col-lg-6 text-center animate-on-scroll">
+          <svg class="img-fluid hero-image" viewBox="0 0 600 500" xmlns="http://www.w3.org/2000/svg">
+            <rect width="600" height="500" fill="#F7F3EE"/>
+            <!-- Bowl -->
+            <ellipse cx="300" cy="350" rx="180" ry="60" fill="#3D6B4A" opacity="0.1"/>
+            <ellipse cx="300" cy="340" rx="180" ry="60" fill="#3D6B4A" opacity="0.15"/>
+            <!-- Makhana pieces -->
+            <circle cx="250" cy="280" r="35" fill="#E8D5C4"/>
+            <circle cx="320" cy="270" r="40" fill="#C89968"/>
+            <circle cx="280" cy="310" r="30" fill="#E8D5C4"/>
+            <circle cx="350" cy="300" r="35" fill="#C89968"/>
+            <circle cx="240" cy="320" r="28" fill="#E8D5C4"/>
+            <circle cx="330" cy="330" r="32" fill="#C89968"/>
+            <!-- Leaves decoration -->
+            <ellipse cx="150" cy="150" rx="30" ry="60" fill="#5A8766" opacity="0.3" transform="rotate(-20 150 150)"/>
+            <ellipse cx="180" cy="140" rx="25" ry="55" fill="#3D6B4A" opacity="0.2" transform="rotate(10 180 140)"/>
+            <ellipse cx="450" cy="120" rx="35" ry="65" fill="#7BA383" opacity="0.3" transform="rotate(30 450 120)"/>
+            <text x="300" y="450" font-family="'Cormorant Garamond', serif" font-size="32" font-weight="600" fill="#3D6B4A" text-anchor="middle">Healthy Snacking</text>
+          </svg>
         </div>
       </div>
     </div>
   </section>
 
   <!-- About Section -->
-  <section id="about" class="bg-white pt-5 mt-5">
-    <div class="container py-5">
+  <section id="about" class="bg-white">
+    <div class="container">
       <div class="row align-items-center g-5">
-        <div class="col-md-6">
-          <img src="https://images.unsplash.com/photo-1522184216315-1b9a2c6f86f8?auto=format&fit=crop&w=800&q=80"
-            alt="Krishlea Team" class="img-fluid rounded-4 shadow-lg">
+        <div class="col-md-6 animate-on-scroll">
+          <svg class="img-fluid about-image" viewBox="0 0 600 500" xmlns="http://www.w3.org/2000/svg">
+            <rect width="600" height="500" fill="#F0EBE3"/>
+            <!-- Farm/Nature scene -->
+            <rect x="0" y="350" width="600" height="150" fill="#7BA383" opacity="0.2"/>
+            <circle cx="150" cy="150" r="80" fill="#E8D5C4" opacity="0.6"/>
+            <!-- Sun -->
+            <circle cx="480" cy="100" r="60" fill="#C89968" opacity="0.4"/>
+            <!-- Plants/grains -->
+            <ellipse cx="200" cy="320" rx="15" ry="80" fill="#5A8766" opacity="0.4"/>
+            <ellipse cx="230" cy="310" rx="12" ry="75" fill="#3D6B4A" opacity="0.5"/>
+            <ellipse cx="260" cy="315" rx="14" ry="78" fill="#5A8766" opacity="0.4"/>
+            <ellipse cx="400" cy="325" rx="13" ry="70" fill="#3D6B4A" opacity="0.4"/>
+            <ellipse cx="430" cy="320" rx="15" ry="75" fill="#5A8766" opacity="0.5"/>
+            <ellipse cx="460" cy="318" rx="12" ry="72" fill="#3D6B4A" opacity="0.4"/>
+            <!-- Heart symbol -->
+            <path d="M 300 180 Q 320 160 340 180 Q 360 200 300 240 Q 240 200 260 180 Q 280 160 300 180" fill="#E85D4A" opacity="0.3"/>
+            <text x="300" y="440" font-family="'Cormorant Garamond', serif" font-size="28" font-weight="600" fill="#3D6B4A" text-anchor="middle">Farm to Family</text>
+          </svg>
         </div>
-        <div class="col-md-6">
-          <h2 class="fw-bold mb-4 text-success">Our Story</h2>
-          <p class="lead text-muted">
+        <div class="col-md-6 animate-on-scroll">
+          <h2 class="mb-4 text-primary-custom">Our Story</h2>
+          <p class="lead text-muted-custom mb-4">
             Krishlea was born out of a simple idea: <strong>make healthy eating easy and enjoyable</strong>.
             We're a small team passionate about natural ingredients, clean snacks, and giving your family better choices.
           </p>
-          <p class="text-muted">Every product we make is thoughtfully sourced and packed with care, from farms to your hands.</p>
+          <p class="text-muted-custom">Every product we make is thoughtfully sourced and packed with care, from farms to your hands.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Products Section -->
-  <section id="products" class="bg-light-green pt-5 mt-5">
-    <div class="container py-5">
-      <h2 class="text-center fw-bold text-success mb-5">Shop Our Bestsellers</h2>
-      <div class="row g-4">
+  <section id="products" class="bg-light-green">
+    <div class="container">
+      <div class="text-center mb-5 animate-on-scroll">
+        <h2 class="text-primary-custom mb-3">Discover Our Collection</h2>
+        <p class="lead text-muted-custom" style="max-width: 600px; margin: 0 auto;">Handcrafted healthy snacks made with love, care, and the finest natural ingredients.</p>
+      </div>
+
+      <div class="row g-5">
         <!-- Peri Peri -->
-        <div class="col-md-4">
-          <div class="card h-100 border-0 shadow rounded-4 product-card">
-            <img src="peri_peri.jpeg"
-              class="card-img-top" alt="Peri Peri Snacks">
-            <div class="card-body text-center">
-              <h5 class="card-title fw-semibold">Peri Peri Makhana</h5>
-              <p class="card-text text-muted">Spicy and flavorful peri peri seasoned makhana for bold taste lovers.</p>
-              <a href="#" class="btn btn-outline-success">Add to Cart</a>
+        <div class="col-lg-4 col-md-6">
+          <div class="product-card-new animate-on-scroll">
+            <div class="product-image-wrapper">
+              <img src="peri_peri.jpeg" alt="Peri Peri Makhana" class="product-image">
+              <div class="product-badge">Bestseller</div>
+            </div>
+            <div class="product-content">
+              <h5 class="product-title">Peri Peri Makhana</h5>
+              <p class="product-description">Bold and spicy seasoning meets crunchy perfection. A fiery treat for adventurous snackers.</p>
+              <div class="product-footer">
+                <span class="product-weight">50g Pack</span>
+                <a href="#" class="btn-add-cart">Add to Cart</a>
+              </div>
             </div>
           </div>
         </div>
 
         <!-- Cream Onion -->
-        <div class="col-md-4">
-          <div class="card h-100 border-0 shadow rounded-4 product-card">
-            <img src="cream_onion.jpeg"
-              class="card-img-top" alt="Cream Onion Makhana">
-            <div class="card-body text-center">
-              <h5 class="card-title fw-semibold">Cream Onion Makhana</h5>
-              <p class="card-text text-muted">Rich and creamy onion flavored makhana for a delightful experience.</p>
-              <a href="#" class="btn btn-outline-success">Add to Cart</a>
+        <div class="col-lg-4 col-md-6">
+          <div class="product-card-new animate-on-scroll">
+            <div class="product-image-wrapper">
+              <img src="cream_onion.jpeg" alt="Cream Onion Makhana" class="product-image">
+            </div>
+            <div class="product-content">
+              <h5 class="product-title">Cream & Onion Makhana</h5>
+              <p class="product-description">Rich, savory, and impossibly creamy. A classic flavor that never gets old.</p>
+              <div class="product-footer">
+                <span class="product-weight">50g Pack</span>
+                <a href="#" class="btn-add-cart">Add to Cart</a>
+              </div>
             </div>
           </div>
         </div>
 
         <!-- Himalayan -->
-        <div class="col-md-4">
-          <div class="card h-100 border-0 shadow rounded-4 product-card">
-            <img src="himalayan.jpeg"
-              class="card-img-top" alt="Himalayan Makhana">
-            <div class="card-body text-center">
-              <h5 class="card-title fw-semibold">Himalayan Makhana</h5>
-              <p class="card-text text-muted">Pure and natural Himalayan-inspired makhana for authentic taste.</p>
-              <a href="#" class="btn btn-outline-success">Add to Cart</a>
+        <div class="col-lg-4 col-md-6">
+          <div class="product-card-new animate-on-scroll">
+            <div class="product-image-wrapper">
+              <img src="himalayan.jpeg" alt="Himalayan Makhana" class="product-image">
+              <div class="product-badge badge-new">New</div>
+            </div>
+            <div class="product-content">
+              <h5 class="product-title">Himalayan Salt Makhana</h5>
+              <p class="product-description">Simply seasoned with pure Himalayan pink salt. Clean, wholesome, authentic.</p>
+              <div class="product-footer">
+                <span class="product-weight">50g Pack</span>
+                <a href="#" class="btn-add-cart">Add to Cart</a>
+              </div>
             </div>
           </div>
         </div>
@@ -147,30 +615,28 @@
   </section>
 
   <!-- Contact Section -->
-  <section id="contact" class="bg-white pt-5 mt-5">
-    <div class="container py-5">
-      <h2 class="text-center fw-bold text-success mb-5">Get in Touch</h2>
-      <div class="row justify-content-center g-5">
-        <div class="col-lg-6">
-          <form id="contactForm" class="bg-light-green p-4 p-md-5 rounded-4 shadow-sm">
+  <section id="contact" class="bg-white">
+    <div class="container">
+      <h2 class="text-center text-primary-custom mb-5 animate-on-scroll">Get in Touch</h2>
+      <div class="row justify-content-center">
+        <div class="col-lg-7">
+          <form id="contactForm" class="bg-light-green p-5 rounded-custom shadow-custom animate-on-scroll">
             <div class="mb-4">
-              <label for="name" class="form-label fw-semibold">Name</label>
-              <input type="text" class="form-control form-control-lg" id="name" placeholder="Your Name" required />
+              <label for="name" class="form-label">Name</label>
+              <input type="text" class="form-control" id="name" placeholder="Your Name" required />
             </div>
             <div class="mb-4">
-              <label for="email" class="form-label fw-semibold">Email</label>
-              <input type="email" class="form-control form-control-lg" id="email" placeholder="you@example.com"
-                required />
+              <label for="email" class="form-label">Email</label>
+              <input type="email" class="form-control" id="email" placeholder="you@example.com" required />
             </div>
             <div class="mb-4">
-              <label for="message" class="form-label fw-semibold">Message</label>
-              <textarea class="form-control form-control-lg" id="message" rows="4"
-                placeholder="Write your message..." required></textarea>
+              <label for="message" class="form-label">Message</label>
+              <textarea class="form-control" id="message" rows="5" placeholder="Write your message..." required></textarea>
             </div>
             <div class="d-grid">
-              <button type="submit" class="btn btn-success btn-lg">Send</button>
+              <button type="submit" class="btn btn-success btn-lg">Send Message</button>
             </div>
-            <div id="formMessage" class="mt-4 text-success fw-bold text-center"></div>
+            <div id="formMessage" class="mt-4 text-primary-custom fw-bold text-center"></div>
           </form>
         </div>
       </div>
@@ -178,8 +644,8 @@
   </section>
 
   <!-- Footer -->
-  <footer class="bg-success text-white text-center py-3 mt-5">
-    &copy; 2025 Krishlea. Naturally Yours.
+  <footer class="text-center">
+    <p class="mb-0">&copy; 2025 Krishlea. Naturally Yours.</p>
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -198,11 +664,47 @@
         if (section) {
           e.preventDefault();
           window.scrollTo({
-            top: section.offsetTop - 65,
+            top: section.offsetTop - 80,
             behavior: 'smooth'
           });
         }
       });
+    });
+
+    // Scroll animations
+    const observerOptions = {
+      threshold: 0.15,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animated');
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.animate-on-scroll').forEach(el => {
+      observer.observe(el);
+    });
+
+    // Navbar scroll effect
+    let lastScroll = 0;
+    const navbar = document.querySelector('.navbar');
+
+    window.addEventListener('scroll', () => {
+      const currentScroll = window.pageYOffset;
+
+      if (currentScroll > 50) {
+        navbar.style.boxShadow = '0 4px 20px rgba(61, 107, 74, 0.2)';
+        navbar.style.padding = '0.5rem 0';
+      } else {
+        navbar.style.boxShadow = '0 2px 12px rgba(61, 107, 74, 0.15)';
+        navbar.style.padding = '1rem 0';
+      }
+
+      lastScroll = currentScroll;
     });
   </script>
 </body>
