@@ -4,11 +4,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Krishlea | Healthy Snacks for Every Home</title>
+  <title>Krishlea | Pure. Natural. Yours.</title>
+  <meta name="description"
+    content="Handcrafted makhana snacks made from lotus seeds grown in the heartlands of India. Clean ingredients, bold flavours, zero guilt." />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
 
   <style>
     /* === CSS Variables for Consistent Design System === */
@@ -17,7 +21,9 @@
       --primary: #2D6A3E;
       --primary-light: #4A8A5E;
       --primary-lighter: #6FA880;
+      --primary-dark: #1F4D2C;
       --secondary: #C99A6E;
+      --secondary-dark: #B07E50;
       --accent: #E8D5C4;
       --bg-cream: #FBFBFD;
       --bg-light: #F5F5F7;
@@ -30,12 +36,12 @@
       --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 
       /* Spacing System (Apple's 4px grid) */
-      --space-xs: 0.5rem;    /* 8px */
-      --space-sm: 1rem;      /* 16px */
-      --space-md: 1.5rem;    /* 24px */
-      --space-lg: 2rem;      /* 32px */
-      --space-xl: 3rem;      /* 48px */
-      --space-2xl: 5rem;     /* 80px */
+      --space-xs: 0.5rem;
+      --space-sm: 1rem;
+      --space-md: 1.5rem;
+      --space-lg: 2rem;
+      --space-xl: 3rem;
+      --space-2xl: 5rem;
 
       /* Border Radius - Apple style */
       --radius-sm: 10px;
@@ -71,45 +77,48 @@
       -moz-osx-font-smoothing: grayscale;
     }
 
-    /* Typography - Apple style */
     h1, h2, h3, h4, h5, h6 {
       font-family: var(--font-heading);
       font-weight: 600;
-      line-height: 1.0834933333;
+      line-height: 1.08;
       letter-spacing: -0.003em;
     }
 
     h1 {
-      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-size: clamp(2.75rem, 5.5vw, 4.5rem);
       font-weight: 700;
       letter-spacing: -0.015em;
     }
+
     h2 {
-      font-size: clamp(2rem, 4vw, 3rem);
+      font-size: clamp(2rem, 4vw, 3.25rem);
       font-weight: 700;
       letter-spacing: -0.01em;
     }
+
     h5 {
       font-size: 1.375rem;
       font-weight: 600;
-      letter-spacing: 0em;
     }
 
     p {
       font-size: 1.0625rem;
-      line-height: 1.47059;
+      line-height: 1.55;
       font-weight: 400;
-      letter-spacing: -0.016em;
+      letter-spacing: -0.014em;
     }
 
     .lead {
       font-size: clamp(1.1875rem, 2vw, 1.3125rem);
       font-weight: 400;
-      line-height: 1.38105;
+      line-height: 1.45;
       letter-spacing: -0.01em;
     }
 
-    /* === Section Spacing === */
+    a {
+      text-decoration: none;
+    }
+
     section {
       padding: var(--space-2xl) 0;
       position: relative;
@@ -121,75 +130,135 @@
       }
     }
 
-    /* === Navbar - Apple style === */
+    /* === Section helpers === */
+    .section-eyebrow {
+      font-size: 0.8125rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--secondary-dark);
+      margin-bottom: 0.75rem;
+      display: block;
+    }
+
+    .bg-light-green {
+      background: linear-gradient(135deg, var(--bg-cream) 0%, var(--bg-light) 100%);
+    }
+
+    .bg-forest {
+      background: var(--primary);
+      color: var(--white);
+    }
+
+    /* === Navbar === */
     .navbar {
       backdrop-filter: saturate(180%) blur(20px);
-      background: rgba(45, 106, 62, 0.72) !important;
+      background: rgba(45, 106, 62, 0.82) !important;
       padding: 0.75rem 0;
       transition: all var(--transition-base);
       border-bottom: 0.5px solid rgba(255, 255, 255, 0.18);
     }
 
+    .navbar.scrolled {
+      padding: 0.45rem 0;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
+      background: rgba(31, 77, 44, 0.92) !important;
+    }
+
     .navbar-brand {
       font-family: var(--font-heading);
-      font-size: 1.375rem;
-      font-weight: 600;
+      font-size: 1.5rem;
+      font-weight: 700;
       letter-spacing: -0.005em;
       color: var(--white) !important;
       transition: opacity var(--transition-fast);
     }
 
+    .navbar-brand span {
+      color: var(--accent);
+    }
+
     .navbar-brand:hover {
-      opacity: 0.8;
+      opacity: 0.85;
     }
 
     .nav-link {
       font-weight: 400;
-      font-size: 0.875rem;
-      padding: 0.5rem 1.125rem !important;
-      color: rgba(255, 255, 255, 0.92) !important;
-      position: relative;
+      font-size: 0.9375rem;
+      padding: 0.5rem 1.05rem !important;
+      color: rgba(255, 255, 255, 0.9) !important;
       transition: color var(--transition-fast);
       letter-spacing: -0.01em;
     }
 
-    .nav-link::after {
-      display: none;
-    }
-
     .nav-link:hover {
-      color: rgba(255, 255, 255, 1) !important;
+      color: var(--white) !important;
     }
 
-    /* === Backgrounds === */
-    .bg-light-green {
-      background: linear-gradient(135deg, var(--bg-cream) 0%, var(--bg-light) 100%);
+    .navbar-toggler {
+      border-color: rgba(255, 255, 255, 0.4);
     }
 
-    /* === Buttons - Apple style === */
+    .navbar-toggler:focus {
+      box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.18);
+    }
+
+    /* Cart button in nav */
+    .cart-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--white);
+      color: var(--primary);
+      border: none;
+      padding: 0.5rem 1.1rem;
+      border-radius: 980px;
+      font-family: var(--font-body);
+      font-size: 0.9375rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all var(--transition-fast);
+    }
+
+    .cart-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .cart-count {
+      background: var(--secondary);
+      color: var(--white);
+      min-width: 20px;
+      height: 20px;
+      padding: 0 6px;
+      border-radius: 980px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.6875rem;
+      font-weight: 700;
+    }
+
+    /* === Buttons === */
     .btn {
-      padding: 0.75rem 1.375rem;
-      font-weight: 400;
+      padding: 0.85rem 1.6rem;
+      font-weight: 500;
       font-size: 1.0625rem;
       border-radius: 980px;
       transition: all var(--transition-base);
       letter-spacing: -0.01em;
       border: none;
-      position: relative;
-      overflow: hidden;
     }
 
     .btn-success {
       background: var(--primary);
       color: var(--white);
-      box-shadow: none;
-      border: 1px solid transparent;
     }
 
     .btn-success:hover {
       background: var(--primary-light);
       transform: scale(1.02);
-      box-shadow: none;
+      color: var(--white);
     }
 
     .btn-outline-success {
@@ -204,7 +273,230 @@
       transform: scale(1.02);
     }
 
-    /* === Product Cards - Apple style === */
+    .btn-cream {
+      background: var(--white);
+      color: var(--primary);
+    }
+
+    .btn-cream:hover {
+      transform: scale(1.02);
+      box-shadow: var(--shadow-lg);
+      color: var(--primary);
+    }
+
+    .btn-ghost-light {
+      background: transparent;
+      border: 1.5px solid rgba(255, 255, 255, 0.45);
+      color: var(--white);
+    }
+
+    .btn-ghost-light:hover {
+      border-color: var(--white);
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--white);
+    }
+
+    /* === HERO === */
+    #home {
+      padding-top: 132px;
+      overflow: hidden;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(45, 106, 62, 0.08);
+      border: 1px solid rgba(45, 106, 62, 0.18);
+      color: var(--primary);
+      padding: 0.4rem 1rem;
+      border-radius: 980px;
+      font-size: 0.8125rem;
+      font-weight: 500;
+      margin-bottom: 1.75rem;
+    }
+
+    .hero-badge .dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--secondary);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--secondary-dark);
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 2.5rem;
+      margin-top: 2.5rem;
+      flex-wrap: wrap;
+    }
+
+    .hero-stat .num {
+      font-family: var(--font-heading);
+      font-size: 2.25rem;
+      font-weight: 700;
+      color: var(--primary);
+      line-height: 1;
+    }
+
+    .hero-stat .label {
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-top: 0.35rem;
+    }
+
+    .hero-panel {
+      position: relative;
+      background: #ffffff;
+      border-radius: var(--radius-lg);
+      padding: 2.5rem;
+      box-shadow: var(--shadow-xl);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: fadeInUp 0.8s ease-out;
+    }
+
+    .hero-panel::after {
+      content: '';
+      position: absolute;
+      bottom: 38px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 52%;
+      height: 22px;
+      border-radius: 50%;
+      background: rgba(0, 0, 0, 0.18);
+      filter: blur(14px);
+      animation: shadowPulse 5s ease-in-out infinite;
+    }
+
+    .hero-pouch {
+      position: relative;
+      z-index: 1;
+      width: auto;
+      max-width: 100%;
+      max-height: 420px;
+      object-fit: contain;
+      mix-blend-mode: multiply;
+      animation: floatY 5s ease-in-out infinite;
+    }
+
+    @keyframes shadowPulse {
+      0%, 100% { opacity: 0.85; transform: translateX(-50%) scale(1); }
+      50% { opacity: 0.55; transform: translateX(-50%) scale(0.88); }
+    }
+
+    @keyframes floatY {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
+    }
+
+    /* === Trust strip === */
+    .trust-strip {
+      background: var(--primary);
+      padding: 1.1rem 0;
+    }
+
+    .trust-strip .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem 2.75rem;
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.92);
+    }
+
+    .trust-item .ico {
+      font-size: 1.1rem;
+    }
+
+    /* === Why / Facts === */
+    .fact-card {
+      background: var(--white);
+      padding: 2.25rem 1.75rem;
+      border-radius: var(--radius-md);
+      border: 0.5px solid rgba(0, 0, 0, 0.05);
+      box-shadow: var(--shadow-sm);
+      height: 100%;
+      transition: all var(--transition-base);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .fact-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(to right, var(--primary), var(--secondary));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform var(--transition-base);
+    }
+
+    .fact-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .fact-card:hover::after {
+      transform: scaleX(1);
+    }
+
+    .fact-icon {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .fact-num {
+      font-family: var(--font-heading);
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--primary);
+      line-height: 1;
+    }
+
+    .fact-num small {
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+
+    .fact-title {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text-dark);
+      margin: 0.5rem 0 0.35rem;
+    }
+
+    .fact-desc {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* === Products === */
     .product-card-new {
       background: var(--white);
       border-radius: var(--radius-md);
@@ -218,56 +510,70 @@
     }
 
     .product-card-new:hover {
-      transform: scale(1.015) translateY(-4px);
+      transform: translateY(-6px);
       box-shadow: var(--shadow-lg);
-      border-color: rgba(0, 0, 0, 0.08);
     }
 
     .product-image-wrapper {
       position: relative;
       overflow: hidden;
-      background: transparent;
-      padding: var(--space-lg);
-      height: 320px;
+      background: #ffffff;
+      height: 310px;
+      padding: 1.5rem 1.5rem 1.25rem;
       display: flex;
       align-items: center;
       justify-content: center;
     }
 
+    /* soft ground shadow so the pouch floats without a boxy outline */
+    .product-image-wrapper::after {
+      content: '';
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 58%;
+      height: 16px;
+      border-radius: 50%;
+      background: rgba(0, 0, 0, 0.16);
+      filter: blur(9px);
+      z-index: 0;
+    }
+
     .product-image {
+      position: relative;
+      z-index: 1;
       width: 100%;
       height: 100%;
       object-fit: contain;
+      mix-blend-mode: multiply;
       transition: transform var(--transition-slow);
     }
 
     .product-card-new:hover .product-image {
-      transform: scale(1.04);
+      transform: scale(1.05) translateY(-4px);
     }
 
     .product-badge {
       position: absolute;
       top: 0.875rem;
       left: 0.875rem;
-      background: rgba(45, 106, 62, 0.88);
+      background: rgba(45, 106, 62, 0.92);
       color: var(--white);
-      padding: 0.3125rem 0.75rem;
-      border-radius: 6.4px;
+      padding: 0.3125rem 0.8rem;
+      border-radius: 980px;
       font-size: 0.6875rem;
-      font-weight: 500;
-      letter-spacing: -0.003em;
-      text-transform: none;
-      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+      font-weight: 600;
+      letter-spacing: 0.02em;
       backdrop-filter: saturate(180%) blur(10px);
     }
 
     .badge-new {
-      background: rgba(201, 154, 110, 0.88);
-      color: var(--white);
+      background: rgba(176, 126, 80, 0.95);
     }
 
     .product-content {
-      padding: var(--space-lg) var(--space-md);
+      padding: 1.6rem 1.5rem 1.75rem;
       display: flex;
       flex-direction: column;
       flex-grow: 1;
@@ -276,131 +582,644 @@
     .product-title {
       font-family: var(--font-heading);
       color: var(--text-dark);
-      margin-bottom: var(--space-sm);
+      margin-bottom: 0.4rem;
       font-weight: 600;
       font-size: 1.5rem;
     }
 
     .product-description {
       color: var(--text-muted);
-      margin-bottom: var(--space-md);
+      margin-bottom: 1.1rem;
       font-size: 0.9375rem;
-      line-height: 1.7;
-      flex-grow: 1;
+      line-height: 1.6;
+    }
+
+    /* Nutrition mini-grid */
+    .nutri-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.1rem;
+    }
+
+    .nutri-chip {
+      background: var(--bg-light);
+      border-radius: 980px;
+      padding: 0.3rem 0.7rem;
+      font-size: 0.75rem;
+      color: var(--text-dark);
+      font-weight: 500;
+    }
+
+    .nutri-chip b {
+      color: var(--primary);
+    }
+
+    details.ingredients {
+      margin-bottom: 1.1rem;
+    }
+
+    details.ingredients summary {
+      cursor: pointer;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: var(--primary);
+      list-style: none;
+      user-select: none;
+    }
+
+    details.ingredients summary::-webkit-details-marker {
+      display: none;
+    }
+
+    details.ingredients summary::before {
+      content: '+ ';
+      font-weight: 700;
+    }
+
+    details.ingredients[open] summary::before {
+      content: '− ';
+    }
+
+    details.ingredients p {
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-top: 0.5rem;
     }
 
     .product-footer {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding-top: var(--space-sm);
-      border-top: 1px solid rgba(61, 107, 74, 0.1);
+      padding-top: 1.1rem;
+      border-top: 1px solid rgba(45, 106, 62, 0.1);
       margin-top: auto;
+    }
+
+    .product-price {
+      font-family: var(--font-heading);
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--primary);
+      line-height: 1;
     }
 
     .product-weight {
       color: var(--text-muted);
-      font-size: 0.875rem;
+      font-size: 0.8125rem;
       font-weight: 500;
     }
 
     .btn-add-cart {
-      color: var(--primary);
+      color: var(--white);
+      background: var(--primary);
       text-decoration: none;
-      font-weight: 400;
+      font-weight: 500;
       font-size: 0.9375rem;
-      padding: 0.4375rem 1rem;
+      padding: 0.55rem 1.2rem;
       border-radius: 980px;
       transition: all var(--transition-fast);
-      border: 1.5px solid var(--primary);
-      background: transparent;
-      display: inline-block;
+      border: none;
+      cursor: pointer;
       letter-spacing: -0.01em;
     }
 
     .btn-add-cart:hover {
-      background: var(--primary);
-      color: var(--white);
+      background: var(--primary-light);
       transform: scale(1.04);
     }
 
-    /* === Images === */
-    .hero-image {
+    /* === Story / About === */
+    .story-panel {
+      background: #ffffff;
       border-radius: var(--radius-lg);
       box-shadow: var(--shadow-lg);
-      animation: fadeInUp 0.8s ease-out;
+      padding: 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
     }
 
-    .about-image {
-      border-radius: var(--radius-lg);
-      box-shadow: var(--shadow-md);
-      animation: fadeInLeft 0.8s ease-out;
+    .story-panel::after {
+      content: '';
+      position: absolute;
+      bottom: 34px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 54%;
+      height: 20px;
+      border-radius: 50%;
+      background: rgba(0, 0, 0, 0.16);
+      filter: blur(12px);
     }
 
-    /* === Form Styles - Apple style === */
-    .form-control {
+    .story-pouch {
+      position: relative;
+      z-index: 1;
+      max-width: 100%;
+      max-height: 420px;
+      width: auto;
+      object-fit: contain;
+      mix-blend-mode: multiply;
+    }
+
+    .story-float-card {
+      position: absolute;
+      bottom: -22px;
+      right: -16px;
+      background: var(--secondary);
+      color: var(--white);
+      border-radius: var(--radius-md);
+      padding: 1rem 1.4rem;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .story-float-card .num {
+      font-family: var(--font-heading);
+      font-size: 2rem;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .story-float-card .label {
+      font-size: 0.75rem;
+      margin-top: 0.2rem;
+    }
+
+    .value-item {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+
+    .value-icon {
+      width: 46px;
+      height: 46px;
+      border-radius: var(--radius-sm);
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      flex-shrink: 0;
+    }
+
+    .value-item strong {
+      display: block;
+      color: var(--white);
+      font-size: 1rem;
+      margin-bottom: 0.15rem;
+      font-weight: 600;
+    }
+
+    .value-item span {
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 0.9rem;
+      line-height: 1.55;
+    }
+
+    .text-on-dark-muted {
+      color: rgba(255, 255, 255, 0.72) !important;
+    }
+
+    /* === Reviews === */
+    .review-card {
+      background: var(--white);
+      border-radius: var(--radius-md);
+      padding: 2rem 1.75rem;
+      border: 0.5px solid rgba(0, 0, 0, 0.05);
+      box-shadow: var(--shadow-sm);
+      height: 100%;
+      transition: all var(--transition-base);
+    }
+
+    .review-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .review-stars {
+      color: var(--secondary);
+      font-size: 1rem;
+      letter-spacing: 0.15em;
+      margin-bottom: 1rem;
+    }
+
+    .review-text {
+      font-size: 1.0625rem;
+      line-height: 1.6;
+      font-style: italic;
+      color: var(--text-dark);
+      margin-bottom: 1.5rem;
+    }
+
+    .reviewer {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+    }
+
+    .reviewer-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+
+    .reviewer-name {
+      font-weight: 600;
+      font-size: 0.9375rem;
+      color: var(--text-dark);
+    }
+
+    .reviewer-detail {
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+    }
+
+    /* === Contact === */
+    .channel {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1.1rem 1.25rem;
+      background: var(--white);
+      border-radius: var(--radius-md);
+      border: 0.5px solid rgba(0, 0, 0, 0.05);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .channel-icon {
+      width: 46px;
+      height: 46px;
+      border-radius: var(--radius-sm);
+      background: var(--primary);
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      flex-shrink: 0;
+    }
+
+    .channel strong {
+      display: block;
+      font-size: 0.9375rem;
+      color: var(--text-dark);
+    }
+
+    .channel span {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+    }
+
+    .form-control, .form-select {
       border: 0.5px solid rgba(0, 0, 0, 0.15);
       border-radius: var(--radius-sm);
-      padding: 0.6875rem 0.875rem;
+      padding: 0.75rem 0.9rem;
       font-size: 1.0625rem;
       transition: all var(--transition-fast);
       background: var(--white);
       font-weight: 400;
-      letter-spacing: -0.016em;
+      letter-spacing: -0.014em;
     }
 
-    .form-control:focus {
+    .form-control:focus, .form-select:focus {
       border-color: var(--primary);
       box-shadow: 0 0 0 3px rgba(45, 106, 62, 0.12);
       outline: none;
-      background: var(--white);
     }
 
     .form-label {
       color: var(--text-dark);
-      font-weight: 400;
-      margin-bottom: 0.375rem;
+      font-weight: 500;
+      margin-bottom: 0.4rem;
       font-size: 0.9375rem;
       letter-spacing: -0.01em;
     }
 
+    /* === Footer === */
+    footer {
+      background: var(--primary-dark);
+      color: var(--white);
+      padding: var(--space-2xl) 0 var(--space-lg);
+    }
+
+    .footer-tagline {
+      font-size: 0.9375rem;
+      color: rgba(255, 255, 255, 0.6);
+      margin-top: 0.75rem;
+      max-width: 280px;
+      line-height: 1.6;
+    }
+
+    .footer-heading {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+
+    .footer-links a {
+      color: rgba(255, 255, 255, 0.65);
+      font-size: 0.9375rem;
+      transition: color var(--transition-fast);
+    }
+
+    .footer-links a:hover {
+      color: var(--white);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      margin-top: var(--space-xl);
+      padding-top: var(--space-md);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .footer-bottom span {
+      font-size: 0.8125rem;
+      color: rgba(255, 255, 255, 0.4);
+    }
+
+    /* === Cart Drawer === */
+    .cart-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.45);
+      z-index: 2000;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity var(--transition-base);
+    }
+
+    .cart-overlay.open {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .cart-drawer {
+      position: fixed;
+      top: 0;
+      right: -440px;
+      width: 420px;
+      max-width: 100%;
+      height: 100vh;
+      background: var(--bg-cream);
+      z-index: 2001;
+      display: flex;
+      flex-direction: column;
+      transition: right var(--transition-base);
+      box-shadow: -8px 0 48px rgba(0, 0, 0, 0.18);
+    }
+
+    .cart-drawer.open {
+      right: 0;
+    }
+
+    .cart-header {
+      padding: 1.5rem 1.6rem 1.1rem;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .cart-header h3 {
+      font-size: 1.4rem;
+      color: var(--primary);
+      margin: 0;
+    }
+
+    .cart-close {
+      width: 36px;
+      height: 36px;
+      border: none;
+      background: var(--bg-light);
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1.1rem;
+      color: var(--text-dark);
+      transition: background var(--transition-fast);
+    }
+
+    .cart-close:hover {
+      background: var(--accent);
+    }
+
+    .cart-items {
+      flex: 1;
+      overflow-y: auto;
+      padding: 1rem 1.6rem;
+    }
+
+    .cart-item {
+      display: flex;
+      gap: 1rem;
+      padding: 1rem 0;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+      animation: slideIn 0.3s ease;
+    }
+
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateX(16px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    .cart-item-img {
+      width: 70px;
+      height: 70px;
+      border-radius: var(--radius-sm);
+      object-fit: contain;
+      padding: 0.3rem;
+      flex-shrink: 0;
+      background: var(--bg-light);
+      mix-blend-mode: multiply;
+    }
+
+    .cart-item-name {
+      font-weight: 600;
+      font-size: 0.9375rem;
+      color: var(--text-dark);
+    }
+
+    .cart-item-variant {
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+    }
+
+    .cart-item-price {
+      font-weight: 700;
+      color: var(--primary);
+      margin-top: 0.3rem;
+      font-size: 1rem;
+    }
+
+    .qty-control {
+      display: inline-flex;
+      align-items: center;
+      border: 1.5px solid rgba(0, 0, 0, 0.12);
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      margin-top: 0.5rem;
+    }
+
+    .qty-btn {
+      background: transparent;
+      border: none;
+      width: 30px;
+      height: 30px;
+      cursor: pointer;
+      font-size: 1rem;
+      color: var(--primary);
+      transition: background var(--transition-fast);
+    }
+
+    .qty-btn:hover {
+      background: var(--bg-light);
+    }
+
+    .qty-num {
+      padding: 0 0.7rem;
+      font-size: 0.875rem;
+      font-weight: 600;
+    }
+
+    .remove-btn {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      font-size: 0.75rem;
+      padding: 0;
+      margin-top: 0.3rem;
+      transition: color var(--transition-fast);
+    }
+
+    .remove-btn:hover {
+      color: var(--secondary-dark);
+    }
+
+    .cart-empty {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      gap: 0.6rem;
+      color: var(--text-muted);
+      text-align: center;
+    }
+
+    .cart-empty .ico {
+      font-size: 3.5rem;
+    }
+
+    .cart-footer {
+      padding: 1.25rem 1.6rem 1.6rem;
+      border-top: 1px solid rgba(0, 0, 0, 0.08);
+      background: var(--white);
+    }
+
+    .cart-line {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.9375rem;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+    }
+
+    .cart-total {
+      display: flex;
+      justify-content: space-between;
+      font-family: var(--font-heading);
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin: 0.5rem 0 0.75rem;
+    }
+
+    .free-ship-note {
+      text-align: center;
+      font-size: 0.8125rem;
+      color: var(--secondary-dark);
+      font-weight: 500;
+      margin-bottom: 1rem;
+    }
+
+    .checkout-btn {
+      width: 100%;
+      background: var(--primary);
+      color: var(--white);
+      border: none;
+      padding: 1rem;
+      border-radius: var(--radius-sm);
+      font-family: var(--font-body);
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background var(--transition-fast);
+    }
+
+    .checkout-btn:hover {
+      background: var(--primary-light);
+    }
+
+    /* === Toast === */
+    .toast-pop {
+      position: fixed;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%) translateY(140px);
+      background: var(--primary);
+      color: var(--white);
+      padding: 0.85rem 1.4rem;
+      border-radius: 980px;
+      font-size: 0.9375rem;
+      font-weight: 500;
+      z-index: 3000;
+      transition: transform var(--transition-base) cubic-bezier(0.34, 1.56, 0.64, 1);
+      box-shadow: var(--shadow-lg);
+      white-space: nowrap;
+      pointer-events: none;
+    }
+
+    .toast-pop.show {
+      transform: translateX(-50%) translateY(0);
+    }
+
     /* === Animations === */
     @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
-    @keyframes fadeInLeft {
-      from {
-        opacity: 0;
-        transform: translateX(-30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateX(0);
-      }
-    }
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-      }
-      to {
-        opacity: 1;
-      }
-    }
-
-    /* Scroll animations */
     .animate-on-scroll {
       opacity: 0;
       transform: translateY(30px);
-      transition: all 0.8s ease-out;
+      transition: all 0.7s ease-out;
     }
 
     .animate-on-scroll.animated {
@@ -408,142 +1227,338 @@
       transform: translateY(0);
     }
 
-    /* === Text Colors === */
-    .text-primary-custom {
-      color: var(--primary) !important;
-    }
+    .text-primary-custom { color: var(--primary) !important; }
+    .text-muted-custom { color: var(--text-muted) !important; }
 
-    .text-muted-custom {
-      color: var(--text-muted) !important;
-    }
+    html { scroll-behavior: smooth; }
 
-    /* === Footer === */
-    footer {
-      background: var(--primary);
-      color: var(--white);
-      padding: var(--space-lg) 0;
-      font-size: 0.9375rem;
-      letter-spacing: 0.03em;
-    }
-
-    /* === Utility Classes === */
-    .shadow-custom {
-      box-shadow: var(--shadow-md);
-    }
-
-    .rounded-custom {
-      border-radius: var(--radius-md);
-    }
-
-    /* === Responsive === */
-    @media (max-width: 768px) {
-      .btn {
-        padding: var(--space-sm) var(--space-md);
-      }
-
-      h1 { font-size: 2.5rem; }
-      h2 { font-size: 2rem; }
-    }
-
-    /* === Smooth Scroll === */
-    html {
-      scroll-behavior: smooth;
-    }
-
-    /* === Selection === */
     ::selection {
       background: var(--primary-lighter);
       color: var(--white);
+    }
+
+    /* === Cart badge bump === */
+    .cart-count.bump {
+      animation: bump 0.4s ease;
+    }
+
+    @keyframes bump {
+      0% { transform: scale(1); }
+      35% { transform: scale(1.5); }
+      100% { transform: scale(1); }
+    }
+
+    /* === Quick View button on cards === */
+    .quick-view-btn {
+      position: absolute;
+      top: 0.875rem;
+      right: 0.875rem;
+      background: rgba(255, 255, 255, 0.92);
+      color: var(--primary);
+      border: none;
+      border-radius: 980px;
+      padding: 0.4rem 0.85rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      cursor: pointer;
+      opacity: 0;
+      transform: translateY(-6px);
+      transition: all var(--transition-base);
+      backdrop-filter: blur(8px);
+    }
+
+    .product-card-new:hover .quick-view-btn,
+    .product-card-new:focus-within .quick-view-btn {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* === Quick View Modal === */
+    .modal-content {
+      border: none;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+
+    .qv-img {
+      width: 100%;
+      height: 100%;
+      min-height: 360px;
+      object-fit: contain;
+      background: #ffffff;
+      padding: 2rem;
+      mix-blend-mode: multiply;
+    }
+
+    .qv-body {
+      padding: 2rem;
+    }
+
+    .qv-body .product-price {
+      font-size: 2rem;
+    }
+
+    .nutri-table {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.6rem;
+      margin: 1.25rem 0;
+    }
+
+    .nutri-cell {
+      background: var(--bg-light);
+      border-radius: var(--radius-sm);
+      padding: 0.75rem 0.9rem;
+    }
+
+    .nutri-cell .v {
+      font-family: var(--font-heading);
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--primary);
+      line-height: 1;
+    }
+
+    .nutri-cell .k {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-top: 0.2rem;
+    }
+
+    /* === FAQ === */
+    .accordion-button {
+      font-family: var(--font-heading);
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--text-dark);
+      background: var(--white);
+      box-shadow: none !important;
+      padding: 1.25rem 1.5rem;
+    }
+
+    .accordion-button:not(.collapsed) {
+      color: var(--primary);
+      background: var(--white);
+    }
+
+    .accordion-button:focus {
+      box-shadow: 0 0 0 3px rgba(45, 106, 62, 0.12) !important;
+    }
+
+    .accordion-item {
+      border: 0.5px solid rgba(0, 0, 0, 0.06);
+      border-radius: var(--radius-md) !important;
+      margin-bottom: 0.85rem;
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .accordion-body {
+      color: var(--text-muted);
+      font-size: 0.9375rem;
+      line-height: 1.65;
+      padding-top: 0;
+    }
+
+    /* === Newsletter === */
+    .newsletter {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: var(--radius-md);
+      padding: 1.25rem;
+      margin-bottom: 2rem;
+    }
+
+    .newsletter input {
+      border: none;
+      border-radius: var(--radius-sm);
+      padding: 0.7rem 0.9rem;
+      font-size: 0.9375rem;
+      flex: 1;
+      min-width: 0;
+    }
+
+    .newsletter input:focus {
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.2);
+    }
+
+    .newsletter button {
+      background: var(--secondary);
+      color: var(--white);
+      border: none;
+      border-radius: var(--radius-sm);
+      padding: 0.7rem 1.2rem;
+      font-weight: 600;
+      font-size: 0.9375rem;
+      cursor: pointer;
+      transition: background var(--transition-fast);
+      white-space: nowrap;
+    }
+
+    .newsletter button:hover {
+      background: var(--secondary-dark);
+    }
+
+    /* === Back to top === */
+    .back-to-top {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: var(--white);
+      border: none;
+      font-size: 1.2rem;
+      cursor: pointer;
+      box-shadow: var(--shadow-lg);
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(16px);
+      transition: all var(--transition-base);
+      z-index: 1500;
+    }
+
+    .back-to-top.show {
+      opacity: 1;
+      pointer-events: all;
+      transform: translateY(0);
+    }
+
+    .back-to-top:hover {
+      background: var(--primary-light);
+    }
+
+    @media (max-width: 768px) {
+      .btn { padding: 0.8rem 1.4rem; }
+      .story-float-card { right: 12px; }
+      .back-to-top { bottom: 1rem; right: 1rem; }
     }
   </style>
 </head>
 
 <body>
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
     <div class="container">
-      <a class="navbar-brand" href="#">Krishlea</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <a class="navbar-brand" href="#home">Krish<span>lea</span></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
 
       <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+        <ul class="navbar-nav ms-auto align-items-lg-center">
+          <li class="nav-item"><a class="nav-link" href="#why">Why Makhana</a></li>
           <li class="nav-item"><a class="nav-link" href="#products">Shop</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">Our Story</a></li>
+          <li class="nav-item"><a class="nav-link" href="#reviews">Reviews</a></li>
           <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+          <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
+            <button class="cart-btn" onclick="openCart()" aria-label="Open cart">
+              🛒 Cart <span class="cart-count" id="cartCount">0</span>
+            </button>
+          </li>
         </ul>
       </div>
     </div>
   </nav>
 
   <!-- Hero Section -->
-  <section id="home" class="bg-light-green" style="padding-top: 120px;">
+  <section id="home" class="bg-light-green">
     <div class="container">
       <div class="row align-items-center g-5">
         <div class="col-lg-6 text-center text-lg-start animate-on-scroll">
-          <h1 class="text-primary-custom mb-4">Healthy Snacking<br>Starts Here</h1>
-          <p class="lead text-muted-custom mb-5">
-            Welcome to Krishlea — your source for natural, tasty, and wholesome snacks like makhana, black rice & more.
+          <span class="hero-badge"><span class="dot"></span>🌿 100% Natural &amp; Preservative Free</span>
+          <h1 class="text-primary-custom mb-3 hero-title">Snack Better.<br><em>Live Better.</em></h1>
+          <p class="lead text-muted-custom mb-4">
+            Handcrafted makhana snacks made from lotus seeds grown in the heartlands of India.
+            Clean ingredients, bold flavours, zero guilt.
           </p>
-          <a href="#products" class="btn btn-success btn-lg">Discover Our Collection</a>
+          <div class="d-flex gap-3 justify-content-center justify-content-lg-start flex-wrap">
+            <a href="#products" class="btn btn-success btn-lg">Shop Now →</a>
+            <a href="#why" class="btn btn-outline-success btn-lg">Why Makhana?</a>
+          </div>
+          <div class="hero-stats justify-content-center justify-content-lg-start">
+            <div class="hero-stat">
+              <div class="num">12K+</div>
+              <div class="label">Happy Families</div>
+            </div>
+            <div class="hero-stat">
+              <div class="num">0</div>
+              <div class="label">Preservatives</div>
+            </div>
+            <div class="hero-stat">
+              <div class="num">4.9★</div>
+              <div class="label">Average Rating</div>
+            </div>
+          </div>
         </div>
         <div class="col-lg-6 text-center animate-on-scroll">
-          <svg class="img-fluid hero-image" viewBox="0 0 600 500" xmlns="http://www.w3.org/2000/svg">
-            <rect width="600" height="500" fill="#F7F3EE"/>
-            <!-- Bowl -->
-            <ellipse cx="300" cy="350" rx="180" ry="60" fill="#3D6B4A" opacity="0.1"/>
-            <ellipse cx="300" cy="340" rx="180" ry="60" fill="#3D6B4A" opacity="0.15"/>
-            <!-- Makhana pieces -->
-            <circle cx="250" cy="280" r="35" fill="#E8D5C4"/>
-            <circle cx="320" cy="270" r="40" fill="#C89968"/>
-            <circle cx="280" cy="310" r="30" fill="#E8D5C4"/>
-            <circle cx="350" cy="300" r="35" fill="#C89968"/>
-            <circle cx="240" cy="320" r="28" fill="#E8D5C4"/>
-            <circle cx="330" cy="330" r="32" fill="#C89968"/>
-            <!-- Leaves decoration -->
-            <ellipse cx="150" cy="150" rx="30" ry="60" fill="#5A8766" opacity="0.3" transform="rotate(-20 150 150)"/>
-            <ellipse cx="180" cy="140" rx="25" ry="55" fill="#3D6B4A" opacity="0.2" transform="rotate(10 180 140)"/>
-            <ellipse cx="450" cy="120" rx="35" ry="65" fill="#7BA383" opacity="0.3" transform="rotate(30 450 120)"/>
-            <text x="300" y="450" font-family="'Cormorant Garamond', serif" font-size="32" font-weight="600" fill="#3D6B4A" text-anchor="middle">Healthy Snacking</text>
-          </svg>
+          <div class="hero-panel">
+            <img src="peri_peri.jpeg" alt="Krishlea Peri Peri makhana pack" class="hero-pouch">
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- About Section -->
-  <section id="about" class="bg-white">
+  <!-- Trust Strip -->
+  <div class="trust-strip">
     <div class="container">
-      <div class="row align-items-center g-5">
-        <div class="col-md-6 order-2 order-md-1 animate-on-scroll">
-          <svg class="img-fluid about-image" viewBox="0 0 600 500" xmlns="http://www.w3.org/2000/svg">
-            <rect width="600" height="500" fill="#F0EBE3"/>
-            <!-- Farm/Nature scene -->
-            <rect x="0" y="350" width="600" height="150" fill="#7BA383" opacity="0.2"/>
-            <circle cx="150" cy="150" r="80" fill="#E8D5C4" opacity="0.6"/>
-            <!-- Sun -->
-            <circle cx="480" cy="100" r="60" fill="#C89968" opacity="0.4"/>
-            <!-- Plants/grains -->
-            <ellipse cx="200" cy="320" rx="15" ry="80" fill="#5A8766" opacity="0.4"/>
-            <ellipse cx="230" cy="310" rx="12" ry="75" fill="#3D6B4A" opacity="0.5"/>
-            <ellipse cx="260" cy="315" rx="14" ry="78" fill="#5A8766" opacity="0.4"/>
-            <ellipse cx="400" cy="325" rx="13" ry="70" fill="#3D6B4A" opacity="0.4"/>
-            <ellipse cx="430" cy="320" rx="15" ry="75" fill="#5A8766" opacity="0.5"/>
-            <ellipse cx="460" cy="318" rx="12" ry="72" fill="#3D6B4A" opacity="0.4"/>
-            <!-- Heart symbol -->
-            <path d="M 300 180 Q 320 160 340 180 Q 360 200 300 240 Q 240 200 260 180 Q 280 160 300 180" fill="#E85D4A" opacity="0.3"/>
-            <text x="300" y="440" font-family="'Cormorant Garamond', serif" font-size="28" font-weight="600" fill="#3D6B4A" text-anchor="middle">Farm to Family</text>
-          </svg>
+      <div class="trust-item"><span class="ico">🚚</span> Free shipping above ₹499</div>
+      <div class="trust-item"><span class="ico">✅</span> FSSAI Certified</div>
+      <div class="trust-item"><span class="ico">🌿</span> No preservatives</div>
+      <div class="trust-item"><span class="ico">📦</span> Delivered in 3–5 days</div>
+      <div class="trust-item"><span class="ico">↩️</span> Easy returns</div>
+    </div>
+  </div>
+
+  <!-- Why Makhana -->
+  <section id="why" class="bg-white">
+    <div class="container">
+      <div class="text-center mb-5 animate-on-scroll">
+        <span class="section-eyebrow">The Superfood You Need</span>
+        <h2 class="text-primary-custom">Why India's Smartest Snackers<br class="d-none d-md-block"> Are Switching to
+          Makhana</h2>
+      </div>
+      <div class="row g-4">
+        <div class="col-lg-3 col-md-6 animate-on-scroll">
+          <div class="fact-card">
+            <div class="fact-icon">💪</div>
+            <div class="fact-num">9.7<small>g</small></div>
+            <div class="fact-title">Protein per 100g</div>
+            <div class="fact-desc">More protein than most packaged snacks. Keeps you full for longer without the crash.
+            </div>
+          </div>
         </div>
-        <div class="col-md-6 order-1 order-md-2 animate-on-scroll">
-          <h2 class="mb-4 text-primary-custom">Our Story</h2>
-          <p class="lead text-muted-custom mb-4">
-            Krishlea was born out of a simple idea: <strong>make healthy eating easy and enjoyable</strong>.
-            We're a small team passionate about natural ingredients, clean snacks, and giving your family better choices.
-          </p>
-          <p class="text-muted-custom">Every product we make is thoughtfully sourced and packed with care, from farms to your hands.</p>
+        <div class="col-lg-3 col-md-6 animate-on-scroll">
+          <div class="fact-card">
+            <div class="fact-icon">🔥</div>
+            <div class="fact-num">347<small>kcal</small></div>
+            <div class="fact-title">Low in Calories</div>
+            <div class="fact-desc">Compare that to chips at 550+ kcal. You eat more, feel great, guilt stays away.</div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 animate-on-scroll">
+          <div class="fact-card">
+            <div class="fact-icon">🦴</div>
+            <div class="fact-num">60<small>mg</small></div>
+            <div class="fact-title">Calcium per 100g</div>
+            <div class="fact-desc">Strong bones, healthy joints. Makhana is one of the richest plant calcium sources.
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 animate-on-scroll">
+          <div class="fact-card">
+            <div class="fact-icon">🩺</div>
+            <div class="fact-num">Low<small> GI</small></div>
+            <div class="fact-title">Diabetic Friendly</div>
+            <div class="fact-desc">Low glycemic index means stable blood sugar. Safe and healthy for the whole family.
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -553,59 +1568,169 @@
   <section id="products" class="bg-light-green">
     <div class="container">
       <div class="text-center mb-5 animate-on-scroll">
-        <h2 class="text-primary-custom mb-3">Discover Our Collection</h2>
-        <p class="lead text-muted-custom" style="max-width: 600px; margin: 0 auto;">Handcrafted healthy snacks made with love, care, and the finest natural ingredients.</p>
+        <span class="section-eyebrow">Our Collection</span>
+        <h2 class="text-primary-custom mb-3">Handcrafted Flavours, Honest Ingredients</h2>
+        <p class="lead text-muted-custom" style="max-width: 600px; margin: 0 auto;">Roasted in small batches with spices
+          from a Bihar kitchen. Clean labels you can actually read.</p>
       </div>
+      <div class="row g-4" id="productsGrid"></div>
+    </div>
+  </section>
 
-      <div class="row g-5">
-        <!-- Peri Peri -->
-        <div class="col-lg-4 col-md-6">
-          <div class="product-card-new animate-on-scroll">
-            <div class="product-image-wrapper">
-              <img src="peri_peri.jpeg" alt="Peri Peri Makhana" class="product-image">
-              <div class="product-badge">Bestseller</div>
+  <!-- Story / About -->
+  <section id="about" class="bg-forest">
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-6 animate-on-scroll">
+          <div class="position-relative">
+            <div class="story-panel">
+              <img src="himalayan.jpeg" alt="Krishlea Himalayan Salt makhana pack" class="story-pouch">
             </div>
-            <div class="product-content">
-              <h5 class="product-title">Peri Peri Makhana</h5>
-              <p class="product-description">Bold and spicy seasoning meets crunchy perfection. A fiery treat for adventurous snackers.</p>
-              <div class="product-footer">
-                <span class="product-weight">50g Pack</span>
-                <a href="#" class="btn-add-cart">Add to Cart</a>
+            <div class="story-float-card">
+              <div class="num">2021</div>
+              <div class="label">Founded with love</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 animate-on-scroll">
+          <span class="section-eyebrow" style="color: var(--accent);">Our Story</span>
+          <h2 class="mb-4">Born in a Kitchen,<br>Built for Every Home</h2>
+          <p class="text-on-dark-muted mb-3">Krishlea started when our founder Priya couldn't find a healthy snack her
+            kids would actually enjoy. Everything on the shelf was either boring or packed with junk. So she started
+            making her own — roasting makhana with spices from her mother's kitchen in Bihar.</p>
+          <p class="text-on-dark-muted mb-4">Three years, 12,000 families, and three flavours later — we still make
+            every batch the same way. Small. Careful. With love.</p>
+
+          <div class="d-flex flex-column gap-3">
+            <div class="value-item">
+              <div class="value-icon">🌾</div>
+              <div>
+                <strong>Sourced from Bihar's Best Farms</strong>
+                <span>We work directly with lotus farmers in Darbhanga — fair prices, fresh produce, every time.</span>
+              </div>
+            </div>
+            <div class="value-item">
+              <div class="value-icon">🧪</div>
+              <div>
+                <strong>Lab Tested, FSSAI Approved</strong>
+                <span>Every batch is tested before it leaves our facility. What's on the label is what's inside.</span>
+              </div>
+            </div>
+            <div class="value-item">
+              <div class="value-icon">♻️</div>
+              <div>
+                <strong>Minimal Packaging, Maximum Care</strong>
+                <span>Recyclable pouches, no plastic waste. Because the planet is part of the family too.</span>
               </div>
             </div>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
 
-        <!-- Cream Onion -->
-        <div class="col-lg-4 col-md-6">
-          <div class="product-card-new animate-on-scroll">
-            <div class="product-image-wrapper">
-              <img src="cream_onion.jpeg" alt="Cream Onion Makhana" class="product-image">
-            </div>
-            <div class="product-content">
-              <h5 class="product-title">Cream & Onion Makhana</h5>
-              <p class="product-description">Rich, savory, and impossibly creamy. A classic flavor that never gets old.</p>
-              <div class="product-footer">
-                <span class="product-weight">50g Pack</span>
-                <a href="#" class="btn-add-cart">Add to Cart</a>
+  <!-- Reviews -->
+  <section id="reviews" class="bg-light-green">
+    <div class="container">
+      <div class="text-center mb-5 animate-on-scroll">
+        <span class="section-eyebrow">Real Customers, Real Love</span>
+        <h2 class="text-primary-custom">12,000+ Families Trust Krishlea</h2>
+      </div>
+      <div class="row g-4">
+        <div class="col-lg-4 animate-on-scroll">
+          <div class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text">"My kids refuse to eat regular chips now. The Peri Peri makhana is their after-school
+              snack every single day. I couldn't be happier — healthy AND they love it!"</p>
+            <div class="reviewer">
+              <div class="reviewer-avatar">👩</div>
+              <div>
+                <div class="reviewer-name">Sunita Sharma</div>
+                <div class="reviewer-detail">Delhi • Peri Peri Makhana</div>
               </div>
             </div>
           </div>
         </div>
-
-        <!-- Himalayan -->
-        <div class="col-lg-4 col-md-6">
-          <div class="product-card-new animate-on-scroll">
-            <div class="product-image-wrapper">
-              <img src="himalayan.jpeg" alt="Himalayan Makhana" class="product-image">
-              <div class="product-badge badge-new">New</div>
+        <div class="col-lg-4 animate-on-scroll">
+          <div class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text">"As a diabetic, finding a tasty snack that won't spike my sugar is a blessing. The
+              Himalayan Salt makhana is clean, satisfying, and actually crunchy. Ordering my 4th pack!"</p>
+            <div class="reviewer">
+              <div class="reviewer-avatar">👨</div>
+              <div>
+                <div class="reviewer-name">Ramesh Agarwal</div>
+                <div class="reviewer-detail">Jaipur • Himalayan Salt Makhana</div>
+              </div>
             </div>
-            <div class="product-content">
-              <h5 class="product-title">Himalayan Salt Makhana</h5>
-              <p class="product-description">Simply seasoned with pure Himalayan pink salt. Clean, wholesome, authentic.</p>
-              <div class="product-footer">
-                <span class="product-weight">50g Pack</span>
-                <a href="#" class="btn-add-cart">Add to Cart</a>
+          </div>
+        </div>
+        <div class="col-lg-4 animate-on-scroll">
+          <div class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text">"I gifted these to my office team and they were gone in 20 minutes! The Cream & Onion
+              flavour is absolutely addictive. Packaging is beautiful too — looks premium."</p>
+            <div class="reviewer">
+              <div class="reviewer-avatar">👩</div>
+              <div>
+                <div class="reviewer-name">Meghna Pillai</div>
+                <div class="reviewer-detail">Bengaluru • Cream & Onion Makhana</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="bg-white">
+    <div class="container">
+      <div class="text-center mb-5 animate-on-scroll">
+        <span class="section-eyebrow">Good to Know</span>
+        <h2 class="text-primary-custom">Frequently Asked Questions</h2>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-lg-8 animate-on-scroll">
+          <div class="accordion" id="faqAccordion">
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#faq1">How fresh is the makhana when it reaches me?</button>
+              </h2>
+              <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">We roast in small batches and ship within days, so every pouch reaches you
+                  fresh and crunchy. Each pack has a 6-month shelf life from the roast date, printed on the back.</div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#faq2">Are these snacks really preservative-free?</button>
+              </h2>
+              <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">Absolutely. Just makhana, cold-pressed oils, and natural spices — nothing
+                  artificial, no added preservatives. Every batch is lab-tested and FSSAI certified.</div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#faq3">How long does delivery take, and what does shipping cost?</button>
+              </h2>
+              <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">Orders are delivered in 3–5 business days across India. Shipping is a flat
+                  ₹49 — and completely free on every order above ₹499.</div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#faq4">Can I order in bulk for my office or event?</button>
+              </h2>
+              <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">Yes! We love corporate gifting and events. Email <strong>bulk@krishlea.com</strong>
+                  for orders of 50 units or more and we'll put together custom pricing for you.</div>
               </div>
             </div>
           </div>
@@ -615,28 +1740,73 @@
   </section>
 
   <!-- Contact Section -->
-  <section id="contact" class="bg-white">
+  <section id="contact" class="bg-light-green">
     <div class="container">
-      <h2 class="text-center text-primary-custom mb-5 animate-on-scroll">Get in Touch</h2>
-      <div class="row justify-content-center">
-        <div class="col-lg-7">
-          <form id="contactForm" class="bg-light-green p-5 rounded-custom shadow-custom animate-on-scroll">
-            <div class="mb-4">
-              <label for="name" class="form-label">Name</label>
-              <input type="text" class="form-control" id="name" placeholder="Your Name" required />
+      <div class="row g-5">
+        <div class="col-lg-5 animate-on-scroll">
+          <span class="section-eyebrow">Get in Touch</span>
+          <h2 class="text-primary-custom mb-3">We'd Love to Hear From You</h2>
+          <p class="text-muted-custom mb-4">Questions about our products, bulk orders, collaborations, or just want to
+            say hello — we reply to every message personally.</p>
+          <div class="d-flex flex-column gap-3">
+            <div class="channel">
+              <div class="channel-icon">📧</div>
+              <div>
+                <strong>Email Us</strong>
+                <span>hello@krishlea.com</span>
+              </div>
             </div>
-            <div class="mb-4">
-              <label for="email" class="form-label">Email</label>
-              <input type="email" class="form-control" id="email" placeholder="you@example.com" required />
+            <div class="channel">
+              <div class="channel-icon">📱</div>
+              <div>
+                <strong>WhatsApp</strong>
+                <span>+91 98765 43210 (Mon–Sat, 10am–7pm)</span>
+              </div>
             </div>
-            <div class="mb-4">
-              <label for="message" class="form-label">Message</label>
-              <textarea class="form-control" id="message" rows="5" placeholder="Write your message..." required></textarea>
+            <div class="channel">
+              <div class="channel-icon">📦</div>
+              <div>
+                <strong>Bulk &amp; Corporate Orders</strong>
+                <span>bulk@krishlea.com • Min. 50 units</span>
+              </div>
             </div>
-            <div class="d-grid">
-              <button type="submit" class="btn btn-success btn-lg">Send Message</button>
+          </div>
+        </div>
+        <div class="col-lg-7 animate-on-scroll">
+          <form id="contactForm" class="bg-white p-4 p-md-5 rounded-custom"
+            style="border-radius: var(--radius-lg); box-shadow: var(--shadow-md);">
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label for="firstName" class="form-label">First Name</label>
+                <input type="text" class="form-control" id="firstName" placeholder="Priya" required />
+              </div>
+              <div class="col-md-6">
+                <label for="lastName" class="form-label">Last Name</label>
+                <input type="text" class="form-control" id="lastName" placeholder="Sharma" />
+              </div>
+              <div class="col-12">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" placeholder="priya@email.com" required />
+              </div>
+              <div class="col-12">
+                <label for="topic" class="form-label">I'm writing about</label>
+                <select class="form-select" id="topic">
+                  <option>Product query</option>
+                  <option>Bulk / Corporate order</option>
+                  <option>Collaboration</option>
+                  <option>Feedback</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div class="col-12">
+                <label for="message" class="form-label">Message</label>
+                <textarea class="form-control" id="message" rows="5" placeholder="Tell us anything…" required></textarea>
+              </div>
+              <div class="col-12 d-grid">
+                <button type="submit" class="btn btn-success btn-lg">Send Message →</button>
+              </div>
             </div>
-            <div id="formMessage" class="mt-4 text-primary-custom fw-bold text-center"></div>
+            <div id="formMessage" class="mt-3 text-primary-custom fw-bold text-center"></div>
           </form>
         </div>
       </div>
@@ -644,68 +1814,405 @@
   </section>
 
   <!-- Footer -->
-  <footer class="text-center">
-    <p class="mb-0">&copy; 2025 Krishlea. Naturally Yours.</p>
+  <footer>
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4 col-md-6">
+          <a class="navbar-brand" href="#home" style="font-size: 1.6rem;">Krish<span
+              style="color: var(--secondary);">lea</span></a>
+          <p class="footer-tagline mb-3">Handcrafted makhana snacks. Made with love, sourced with integrity, delivered
+            to your door.</p>
+          <div class="newsletter">
+            <div class="footer-heading mb-2">Join the family</div>
+            <form class="d-flex gap-2" id="newsletterForm">
+              <input type="email" placeholder="Your email" aria-label="Email for newsletter" required>
+              <button type="submit">Subscribe</button>
+            </form>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-6 col-6">
+          <div class="footer-heading">Shop</div>
+          <ul class="footer-links">
+            <li><a href="#products">Peri Peri Makhana</a></li>
+            <li><a href="#products">Cream &amp; Onion</a></li>
+            <li><a href="#products">Himalayan Salt</a></li>
+            <li><a href="#products">Gift Bundles</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-2 col-md-6 col-6">
+          <div class="footer-heading">Company</div>
+          <ul class="footer-links">
+            <li><a href="#about">Our Story</a></li>
+            <li><a href="#reviews">Reviews</a></li>
+            <li><a href="#why">Why Makhana</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-2 col-md-6 col-6">
+          <div class="footer-heading">Help</div>
+          <ul class="footer-links">
+            <li><a href="#">Shipping Policy</a></li>
+            <li><a href="#">Returns</a></li>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 Krishlea. Naturally Yours.</span>
+        <span>FSSAI Lic. No. 12345678901234</span>
+      </div>
+    </div>
   </footer>
+
+  <!-- Cart Overlay + Drawer -->
+  <div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
+  <aside class="cart-drawer" id="cartDrawer" aria-label="Shopping cart">
+    <div class="cart-header">
+      <h3>Your Cart 🛒</h3>
+      <button class="cart-close" onclick="closeCart()" aria-label="Close cart">✕</button>
+    </div>
+    <div class="cart-items" id="cartItems"></div>
+    <div class="cart-footer" id="cartFooter" style="display: none;">
+      <div class="cart-line"><span>Subtotal</span><span id="subtotalVal">₹0</span></div>
+      <div class="cart-line"><span>Shipping</span><span id="shippingVal">₹49</span></div>
+      <div class="cart-total"><span>Total</span><span id="totalVal">₹0</span></div>
+      <div class="free-ship-note" id="shippingNotice"></div>
+      <button class="checkout-btn" onclick="checkout()">Proceed to Checkout →</button>
+    </div>
+  </aside>
+
+  <!-- Quick View Modal -->
+  <div class="modal fade" id="quickViewModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="row g-0">
+          <div class="col-md-6">
+            <img id="qvImg" class="qv-img" src="" alt="">
+          </div>
+          <div class="col-md-6">
+            <div class="qv-body position-relative">
+              <button type="button" class="cart-close position-absolute" style="top: 1rem; right: 1rem;"
+                data-bs-dismiss="modal" aria-label="Close">✕</button>
+              <span class="section-eyebrow" id="qvBadge"></span>
+              <h3 class="product-title mb-2" id="qvName">Product details</h3>
+              <p class="text-muted-custom" id="qvDesc" style="font-size: 0.9375rem;"></p>
+              <div class="nutri-table" id="qvNutri"></div>
+              <div class="mb-3">
+                <div class="footer-heading" style="color: var(--secondary-dark);">Ingredients</div>
+                <p class="text-muted-custom" id="qvIngredients" style="font-size: 0.8125rem; line-height: 1.6;"></p>
+              </div>
+              <div class="d-flex align-items-center justify-content-between">
+                <div>
+                  <div class="product-price" id="qvPrice"></div>
+                  <div class="product-weight" id="qvWeight"></div>
+                </div>
+                <button class="btn btn-success" id="qvAddBtn">Add to Cart →</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Back to top -->
+  <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})"
+    aria-label="Back to top">↑</button>
+
+  <!-- Toast -->
+  <div class="toast-pop" id="toast"></div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script>
-    // Contact form
-    document.getElementById('contactForm').onsubmit = function (event) {
-      event.preventDefault();
-      document.getElementById('formMessage').textContent = "Thank you! We'll be in touch soon.";
-      this.reset();
-    };
+    // ── PRODUCTS DATA ──
+    const products = [
+      {
+        id: 1,
+        name: "Peri Peri Makhana",
+        tagline: "Bold, fiery, and dangerously addictive. Our bestselling heat fix.",
+        price: 149,
+        weight: "50g",
+        emoji: "🌶️",
+        badge: "Bestseller",
+        badgeClass: "",
+        img: "peri_peri.jpeg",
+        nutrition: { protein: "9.4g", calories: "356kcal", fat: "3.1g", carbs: "76g" },
+        ingredients: "Makhana (lotus seeds), sunflower oil, peri peri seasoning (chilli, paprika, garlic, onion, lemon powder, salt), citric acid."
+      },
+      {
+        id: 2,
+        name: "Cream & Onion Makhana",
+        tagline: "Rich, savory, creamy — everything you loved about those chips, made right.",
+        price: 149,
+        weight: "50g",
+        emoji: "🧅",
+        badge: null,
+        badgeClass: "",
+        img: "cream_onion.jpeg",
+        nutrition: { protein: "9.1g", calories: "362kcal", fat: "3.4g", carbs: "75g" },
+        ingredients: "Makhana (lotus seeds), sunflower oil, cream & onion seasoning (buttermilk powder, dried onion, garlic, black pepper, salt)."
+      },
+      {
+        id: 3,
+        name: "Himalayan Salt Makhana",
+        tagline: "When clean is the point. Just makhana, just salt, just perfect.",
+        price: 129,
+        weight: "50g",
+        emoji: "🧂",
+        badge: "New",
+        badgeClass: "badge-new",
+        img: "himalayan.jpeg",
+        nutrition: { protein: "9.7g", calories: "341kcal", fat: "2.2g", carbs: "76g" },
+        ingredients: "Makhana (lotus seeds), cold-pressed coconut oil, Himalayan pink salt."
+      }
+    ];
 
-    // Smooth scroll
-    document.querySelectorAll('.nav-link').forEach(link => {
+    // Restore cart from previous visit
+    let cart = [];
+    try {
+      const saved = JSON.parse(localStorage.getItem('krishlea_cart') || '[]');
+      if (Array.isArray(saved)) cart = saved;
+    } catch (e) { cart = []; }
+
+    function saveCart() {
+      try { localStorage.setItem('krishlea_cart', JSON.stringify(cart)); } catch (e) {}
+    }
+
+    // ── RENDER PRODUCTS ──
+    function renderProducts() {
+      const grid = document.getElementById('productsGrid');
+      grid.innerHTML = products.map(p => `
+        <div class="col-lg-4 col-md-6 animate-on-scroll">
+          <div class="product-card-new">
+            <div class="product-image-wrapper">
+              <img src="${p.img}" alt="${p.name}" class="product-image"
+                onerror="this.style.display='none';this.parentElement.style.fontSize='80px';this.parentElement.innerHTML='${p.emoji}'">
+              ${p.badge ? `<div class="product-badge ${p.badgeClass}">${p.badge}</div>` : ''}
+              <button class="quick-view-btn" onclick="openQuickView(${p.id})">Quick View</button>
+            </div>
+            <div class="product-content">
+              <h5 class="product-title">${p.name}</h5>
+              <p class="product-description">${p.tagline}</p>
+              <div class="nutri-row">
+                <span class="nutri-chip"><b>${p.nutrition.protein}</b> protein</span>
+                <span class="nutri-chip"><b>${p.nutrition.calories}</b></span>
+                <span class="nutri-chip"><b>${p.nutrition.fat}</b> fat</span>
+                <span class="nutri-chip"><b>${p.nutrition.carbs}</b> carbs</span>
+              </div>
+              <details class="ingredients">
+                <summary>Ingredients</summary>
+                <p>${p.ingredients}</p>
+              </details>
+              <div class="product-footer">
+                <div>
+                  <div class="product-price">₹${p.price}</div>
+                  <div class="product-weight">${p.weight} pack</div>
+                </div>
+                <button class="btn-add-cart" onclick="addToCart(${p.id})">Add to Cart</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      `).join('');
+      observeNewItems();
+    }
+
+    // ── CART LOGIC ──
+    function addToCart(productId) {
+      const product = products.find(p => p.id === productId);
+      const existing = cart.find(i => i.id === productId);
+      if (existing) existing.qty++;
+      else cart.push({ ...product, qty: 1 });
+      updateCartUI();
+      showToast(`${product.emoji} ${product.name} added to cart!`);
+      setTimeout(openCart, 350);
+    }
+
+    function removeFromCart(productId) {
+      cart = cart.filter(i => i.id !== productId);
+      updateCartUI();
+    }
+
+    function changeQty(productId, delta) {
+      const item = cart.find(i => i.id === productId);
+      if (!item) return;
+      item.qty += delta;
+      if (item.qty <= 0) removeFromCart(productId);
+      else updateCartUI();
+    }
+
+    function updateCartUI() {
+      saveCart();
+      const totalItems = cart.reduce((s, i) => s + i.qty, 0);
+      const countEl = document.getElementById('cartCount');
+      countEl.textContent = totalItems;
+      countEl.classList.remove('bump');
+      void countEl.offsetWidth; // restart animation
+      if (totalItems > 0) countEl.classList.add('bump');
+
+      const itemsEl = document.getElementById('cartItems');
+      const footerEl = document.getElementById('cartFooter');
+
+      if (cart.length === 0) {
+        itemsEl.innerHTML = `<div class="cart-empty"><div class="ico">🛒</div><p>Your cart is empty</p><p style="font-size:.8125rem;color:var(--text-muted)">Add some makhana goodness!</p></div>`;
+        footerEl.style.display = 'none';
+        return;
+      }
+
+      itemsEl.innerHTML = cart.map(item => `
+        <div class="cart-item">
+          <img class="cart-item-img" src="${item.img}" alt="${item.name}"
+            onerror="this.outerHTML='<div class=&quot;cart-item-img&quot; style=&quot;display:flex;align-items:center;justify-content:center;font-size:1.8rem&quot;>${item.emoji}</div>'">
+          <div class="flex-grow-1">
+            <div class="cart-item-name">${item.name}</div>
+            <div class="cart-item-variant">${item.weight} pack</div>
+            <div class="qty-control">
+              <button class="qty-btn" onclick="changeQty(${item.id}, -1)">−</button>
+              <span class="qty-num">${item.qty}</span>
+              <button class="qty-btn" onclick="changeQty(${item.id}, 1)">+</button>
+            </div>
+            <div><button class="remove-btn" onclick="removeFromCart(${item.id})">Remove</button></div>
+          </div>
+          <div class="text-end">
+            <div class="cart-item-price">₹${item.price * item.qty}</div>
+          </div>
+        </div>
+      `).join('');
+
+      const subtotal = cart.reduce((s, i) => s + i.price * i.qty, 0);
+      const shipping = subtotal >= 499 ? 0 : 49;
+      const total = subtotal + shipping;
+
+      document.getElementById('subtotalVal').textContent = `₹${subtotal}`;
+      document.getElementById('shippingVal').textContent = shipping === 0 ? 'FREE 🎉' : `₹${shipping}`;
+      document.getElementById('totalVal').textContent = `₹${total}`;
+
+      const notice = document.getElementById('shippingNotice');
+      notice.textContent = subtotal < 499 ? `Add ₹${499 - subtotal} more for FREE shipping!` : '';
+      footerEl.style.display = 'block';
+    }
+
+    function openCart() {
+      document.getElementById('cartDrawer').classList.add('open');
+      document.getElementById('cartOverlay').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeCart() {
+      document.getElementById('cartDrawer').classList.remove('open');
+      document.getElementById('cartOverlay').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    function checkout() {
+      showToast('🎉 Redirecting to secure checkout...');
+      setTimeout(closeCart, 1500);
+    }
+
+    // ── TOAST ──
+    let toastTimer;
+    function showToast(msg) {
+      const t = document.getElementById('toast');
+      t.textContent = msg;
+      t.classList.add('show');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => t.classList.remove('show'), 2800);
+    }
+
+    // ── CONTACT FORM ──
+    document.getElementById('contactForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      document.getElementById('formMessage').textContent = "✅ Thanks! We'll reply within 24 hours.";
+      showToast('✅ Message sent!');
+      this.reset();
+    });
+
+    // ── NAV SCROLL ──
+    const nav = document.getElementById('mainNav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 60);
+    });
+
+    // ── SMOOTH SCROLL + close mobile menu ──
+    document.querySelectorAll('.nav-link, a.btn[href^="#"], .footer-links a[href^="#"]').forEach(link => {
       link.addEventListener('click', function (e) {
-        const section = document.querySelector(this.getAttribute('href'));
-        if (section) {
+        const href = this.getAttribute('href');
+        if (!href || !href.startsWith('#') || href === '#') return;
+        const target = document.querySelector(href);
+        if (target) {
           e.preventDefault();
-          window.scrollTo({
-            top: section.offsetTop - 80,
-            behavior: 'smooth'
-          });
+          window.scrollTo({ top: target.offsetTop - 70, behavior: 'smooth' });
+          const collapse = document.getElementById('navbarNav');
+          if (collapse.classList.contains('show')) {
+            bootstrap.Collapse.getOrCreateInstance(collapse).hide();
+          }
         }
       });
     });
 
-    // Scroll animations
-    const observerOptions = {
-      threshold: 0.15,
-      rootMargin: '0px 0px -50px 0px'
-    };
-
+    // ── SCROLL ANIMATIONS ──
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('animated');
+          observer.unobserve(entry.target);
         }
       });
-    }, observerOptions);
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
 
-    document.querySelectorAll('.animate-on-scroll').forEach(el => {
-      observer.observe(el);
+    function observeNewItems() {
+      document.querySelectorAll('.animate-on-scroll:not(.animated)').forEach(el => observer.observe(el));
+    }
+
+    // ── ESC closes cart ──
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') closeCart();
     });
 
-    // Navbar scroll effect
-    let lastScroll = 0;
-    const navbar = document.querySelector('.navbar');
+    // ── QUICK VIEW MODAL ──
+    let qvModal;
+    function openQuickView(productId) {
+      const p = products.find(x => x.id === productId);
+      if (!p) return;
+      const img = document.getElementById('qvImg');
+      img.src = p.img;
+      img.alt = p.name;
+      img.onerror = function () { this.style.background = 'var(--bg-light)'; };
+      document.getElementById('qvBadge').textContent = p.badge || 'Our Collection';
+      document.getElementById('qvName').textContent = p.name;
+      document.getElementById('qvDesc').textContent = p.tagline;
+      document.getElementById('qvIngredients').textContent = p.ingredients;
+      document.getElementById('qvPrice').textContent = `₹${p.price}`;
+      document.getElementById('qvWeight').textContent = `${p.weight} pack`;
+      document.getElementById('qvNutri').innerHTML = `
+        <div class="nutri-cell"><div class="v">${p.nutrition.protein}</div><div class="k">Protein</div></div>
+        <div class="nutri-cell"><div class="v">${p.nutrition.calories}</div><div class="k">Calories</div></div>
+        <div class="nutri-cell"><div class="v">${p.nutrition.fat}</div><div class="k">Total Fat</div></div>
+        <div class="nutri-cell"><div class="v">${p.nutrition.carbs}</div><div class="k">Carbs</div></div>`;
+      const addBtn = document.getElementById('qvAddBtn');
+      addBtn.onclick = () => { addToCart(p.id); qvModal.hide(); };
+      qvModal = qvModal || new bootstrap.Modal(document.getElementById('quickViewModal'));
+      qvModal.show();
+    }
 
+    // ── BACK TO TOP ──
+    const backToTop = document.getElementById('backToTop');
     window.addEventListener('scroll', () => {
-      const currentScroll = window.pageYOffset;
-
-      if (currentScroll > 50) {
-        navbar.style.boxShadow = '0 4px 20px rgba(61, 107, 74, 0.2)';
-        navbar.style.padding = '0.5rem 0';
-      } else {
-        navbar.style.boxShadow = '0 2px 12px rgba(61, 107, 74, 0.15)';
-        navbar.style.padding = '1rem 0';
-      }
-
-      lastScroll = currentScroll;
+      backToTop.classList.toggle('show', window.scrollY > 600);
     });
+
+    // ── NEWSLETTER ──
+    document.getElementById('newsletterForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      showToast('🌿 You are in! Welcome to the Krishlea family.');
+      this.reset();
+    });
+
+    // ── INIT ──
+    renderProducts();
+    updateCartUI();
+    observeNewItems();
   </script>
 </body>
 
