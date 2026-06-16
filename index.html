@@ -25,10 +25,14 @@
       --secondary: #C99A6E;
       --secondary-dark: #B07E50;
       --accent: #E8D5C4;
-      --bg-cream: #FBFBFD;
-      --bg-light: #F5F5F7;
+      /* Cream & white surface tokens */
+      --cream: #F7F2E8;
+      --cream-soft: #FBF8F1;
+      --cream-deep: #EFE7D7;
+      --bg-cream: #F7F2E8;
+      --bg-light: #FBF8F1;
       --text-dark: #1d1d1f;
-      --text-muted: #86868b;
+      --text-muted: #7c756b;
       --white: #FFFFFF;
 
       /* Typography - Elegant & Modern */
@@ -153,16 +157,16 @@
     /* === Navbar === */
     .navbar {
       backdrop-filter: saturate(180%) blur(20px);
-      background: rgba(45, 106, 62, 0.82) !important;
+      background: rgba(247, 242, 232, 0.85) !important;
       padding: 0.75rem 0;
       transition: all var(--transition-base);
-      border-bottom: 0.5px solid rgba(255, 255, 255, 0.18);
+      border-bottom: 0.5px solid rgba(0, 0, 0, 0.06);
     }
 
     .navbar.scrolled {
       padding: 0.45rem 0;
-      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
-      background: rgba(31, 77, 44, 0.92) !important;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.07);
+      background: rgba(247, 242, 232, 0.95) !important;
     }
 
     .navbar-brand {
@@ -170,12 +174,12 @@
       font-size: 1.5rem;
       font-weight: 700;
       letter-spacing: -0.005em;
-      color: var(--white) !important;
+      color: var(--primary) !important;
       transition: opacity var(--transition-fast);
     }
 
     .navbar-brand span {
-      color: var(--accent);
+      color: inherit;
     }
 
     .navbar-brand:hover {
@@ -183,24 +187,24 @@
     }
 
     .nav-link {
-      font-weight: 400;
+      font-weight: 500;
       font-size: 0.9375rem;
       padding: 0.5rem 1.05rem !important;
-      color: rgba(255, 255, 255, 0.9) !important;
+      color: rgba(29, 29, 31, 0.78) !important;
       transition: color var(--transition-fast);
       letter-spacing: -0.01em;
     }
 
     .nav-link:hover {
-      color: var(--white) !important;
+      color: var(--primary) !important;
     }
 
     .navbar-toggler {
-      border-color: rgba(255, 255, 255, 0.4);
+      border-color: rgba(0, 0, 0, 0.12);
     }
 
     .navbar-toggler:focus {
-      box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.18);
+      box-shadow: 0 0 0 3px rgba(45, 106, 62, 0.15);
     }
 
     /* Cart button in nav */
@@ -208,8 +212,8 @@
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
-      background: var(--white);
-      color: var(--primary);
+      background: var(--primary);
+      color: var(--white);
       border: none;
       padding: 0.5rem 1.1rem;
       border-radius: 980px;
@@ -221,6 +225,7 @@
     }
 
     .cart-btn:hover {
+      background: var(--primary-light);
       transform: translateY(-1px);
       box-shadow: var(--shadow-md);
     }
@@ -406,8 +411,10 @@
 
     /* === Trust strip === */
     .trust-strip {
-      background: var(--primary);
+      background: var(--accent);
       padding: 1.1rem 0;
+      border-top: 1px solid rgba(0, 0, 0, 0.04);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.04);
     }
 
     .trust-strip .container {
@@ -422,8 +429,8 @@
       align-items: center;
       gap: 0.5rem;
       font-size: 0.875rem;
-      font-weight: 500;
-      color: rgba(255, 255, 255, 0.92);
+      font-weight: 600;
+      color: var(--primary-dark);
     }
 
     .trust-item .ico {
@@ -759,8 +766,8 @@
       width: 46px;
       height: 46px;
       border-radius: var(--radius-sm);
-      background: rgba(255, 255, 255, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.18);
+      background: rgba(45, 106, 62, 0.08);
+      border: 1px solid rgba(45, 106, 62, 0.15);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -770,20 +777,16 @@
 
     .value-item strong {
       display: block;
-      color: var(--white);
+      color: var(--text-dark);
       font-size: 1rem;
       margin-bottom: 0.15rem;
       font-weight: 600;
     }
 
     .value-item span {
-      color: rgba(255, 255, 255, 0.72);
+      color: var(--text-muted);
       font-size: 0.9rem;
       line-height: 1.55;
-    }
-
-    .text-on-dark-muted {
-      color: rgba(255, 255, 255, 0.72) !important;
     }
 
     /* === Reviews === */
@@ -910,14 +913,15 @@
 
     /* === Footer === */
     footer {
-      background: var(--primary-dark);
-      color: var(--white);
+      background: var(--cream-deep);
+      color: var(--text-dark);
       padding: var(--space-2xl) 0 var(--space-lg);
+      border-top: 1px solid rgba(0, 0, 0, 0.05);
     }
 
     .footer-tagline {
       font-size: 0.9375rem;
-      color: rgba(255, 255, 255, 0.6);
+      color: var(--text-muted);
       margin-top: 0.75rem;
       max-width: 280px;
       line-height: 1.6;
@@ -928,7 +932,7 @@
       font-weight: 700;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--accent);
+      color: var(--secondary-dark);
       margin-bottom: 1rem;
     }
 
@@ -940,17 +944,17 @@
     }
 
     .footer-links a {
-      color: rgba(255, 255, 255, 0.65);
+      color: var(--text-muted);
       font-size: 0.9375rem;
       transition: color var(--transition-fast);
     }
 
     .footer-links a:hover {
-      color: var(--white);
+      color: var(--primary);
     }
 
     .footer-bottom {
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      border-top: 1px solid rgba(0, 0, 0, 0.08);
       margin-top: var(--space-xl);
       padding-top: var(--space-md);
       display: flex;
@@ -961,7 +965,7 @@
 
     .footer-bottom span {
       font-size: 0.8125rem;
-      color: rgba(255, 255, 255, 0.4);
+      color: var(--text-muted);
     }
 
     /* === Cart Drawer === */
@@ -1362,25 +1366,30 @@
 
     /* === Newsletter === */
     .newsletter {
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: var(--white);
+      border: 1px solid rgba(0, 0, 0, 0.07);
       border-radius: var(--radius-md);
       padding: 1.25rem;
       margin-bottom: 2rem;
+      box-shadow: var(--shadow-sm);
     }
 
     .newsletter input {
-      border: none;
+      border: 1px solid rgba(0, 0, 0, 0.1);
       border-radius: var(--radius-sm);
       padding: 0.7rem 0.9rem;
       font-size: 0.9375rem;
       flex: 1;
       min-width: 0;
+      background: var(--cream-soft);
+      font-family: var(--font-body);
+      color: var(--text-dark);
     }
 
     .newsletter input:focus {
       outline: none;
-      box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.2);
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(45, 106, 62, 0.15);
     }
 
     .newsletter button {
@@ -1389,6 +1398,7 @@
       border: none;
       border-radius: var(--radius-sm);
       padding: 0.7rem 1.2rem;
+      font-family: var(--font-body);
       font-weight: 600;
       font-size: 0.9375rem;
       cursor: pointer;
@@ -1578,7 +1588,7 @@
   </section>
 
   <!-- Story / About -->
-  <section id="about" class="bg-forest">
+  <section id="about" class="bg-white">
     <div class="container">
       <div class="row align-items-center g-5">
         <div class="col-lg-6 animate-on-scroll">
@@ -1593,12 +1603,12 @@
           </div>
         </div>
         <div class="col-lg-6 animate-on-scroll">
-          <span class="section-eyebrow" style="color: var(--accent);">Our Story</span>
-          <h2 class="mb-4">Born in a Kitchen,<br>Built for Every Home</h2>
-          <p class="text-on-dark-muted mb-3">Krishlea started when our founder Priya couldn't find a healthy snack her
+          <span class="section-eyebrow">Our Story</span>
+          <h2 class="mb-4 text-primary-custom">Born in a Kitchen,<br>Built for Every Home</h2>
+          <p class="text-muted-custom mb-3">Krishlea started when our founder Priya couldn't find a healthy snack her
             kids would actually enjoy. Everything on the shelf was either boring or packed with junk. So she started
             making her own — roasting makhana with spices from her mother's kitchen in Bihar.</p>
-          <p class="text-on-dark-muted mb-4">Three years, 12,000 families, and three flavours later — we still make
+          <p class="text-muted-custom mb-4">Three years, 12,000 families, and three flavours later — we still make
             every batch the same way. Small. Careful. With love.</p>
 
           <div class="d-flex flex-column gap-3">
@@ -1818,8 +1828,7 @@
     <div class="container">
       <div class="row g-4">
         <div class="col-lg-4 col-md-6">
-          <a class="navbar-brand" href="#home" style="font-size: 1.6rem;">Krish<span
-              style="color: var(--secondary);">lea</span></a>
+          <a class="navbar-brand" href="#home" style="font-size: 1.6rem; color: var(--primary) !important;">Krish<span>lea</span></a>
           <p class="footer-tagline mb-3">Handcrafted makhana snacks. Made with love, sourced with integrity, delivered
             to your door.</p>
           <div class="newsletter">
@@ -1878,7 +1887,7 @@
       <div class="cart-line"><span>Shipping</span><span id="shippingVal">₹49</span></div>
       <div class="cart-total"><span>Total</span><span id="totalVal">₹0</span></div>
       <div class="free-ship-note" id="shippingNotice"></div>
-      <button class="checkout-btn" onclick="checkout()">Proceed to Checkout →</button>
+      <button class="checkout-btn" onclick="checkout()">📲 Order via WhatsApp</button>
     </div>
   </aside>
 
@@ -2105,9 +2114,29 @@
       document.body.style.overflow = '';
     }
 
+    // WhatsApp business number (digits only, with country code — no +, spaces or dashes)
+    const WHATSAPP_NUMBER = '919876543210';
+
     function checkout() {
-      showToast('🎉 Redirecting to secure checkout...');
-      setTimeout(closeCart, 1500);
+      if (cart.length === 0) return;
+
+      const subtotal = cart.reduce((s, i) => s + i.price * i.qty, 0);
+      const shipping = subtotal >= 499 ? 0 : 49;
+      const total = subtotal + shipping;
+
+      const lines = cart.map(i => `• ${i.name} (${i.weight}) × ${i.qty} — ₹${i.price * i.qty}`);
+      const message =
+        `Hi Krishlea! 🌿 I'd like to place an order:\n\n` +
+        lines.join('\n') +
+        `\n\nSubtotal: ₹${subtotal}` +
+        `\nShipping: ${shipping === 0 ? 'FREE' : '₹' + shipping}` +
+        `\n*Total: ₹${total}*` +
+        `\n\nPlease confirm availability and share payment details. Thank you!`;
+
+      const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+      window.open(url, '_blank');
+      showToast('📲 Opening WhatsApp to confirm your order...');
+      setTimeout(closeCart, 1200);
     }
 
     // ── TOAST ──
