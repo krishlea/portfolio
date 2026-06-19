@@ -738,6 +738,84 @@
       mix-blend-mode: multiply;
     }
 
+    .story-panel--process {
+      flex-direction: column;
+      align-items: stretch;
+      padding: 2.25rem 2.25rem 2rem;
+    }
+
+    .story-process-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--secondary-dark);
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+    }
+
+    .story-process {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      position: relative;
+    }
+
+    .story-process::before {
+      content: '';
+      position: absolute;
+      left: 18px;
+      top: 12px;
+      bottom: 12px;
+      width: 2px;
+      background: var(--cream-deep);
+    }
+
+    .story-step {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.1rem;
+      position: relative;
+    }
+
+    .story-step:not(:last-child) {
+      margin-bottom: 1.5rem;
+    }
+
+    .story-step-num {
+      flex: 0 0 auto;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: var(--white);
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .story-step-body {
+      display: flex;
+      flex-direction: column;
+      padding-top: 0.1rem;
+    }
+
+    .story-step-body strong {
+      color: var(--primary-dark);
+      font-size: 1.02rem;
+      line-height: 1.3;
+    }
+
+    .story-step-body span {
+      color: var(--text-muted, #6b6b6b);
+      font-size: 0.9rem;
+      margin-top: 0.15rem;
+    }
+
     .story-float-card {
       position: absolute;
       bottom: -22px;
@@ -1749,8 +1827,38 @@
       <div class="row align-items-center g-5">
         <div class="col-lg-6 animate-on-scroll">
           <div class="position-relative">
-            <div class="story-panel">
-              <img src="images/himalayan.jpeg" alt="Krishlea Himalayan Salt makhana pack" class="story-pouch">
+            <div class="story-panel story-panel--process">
+              <span class="story-process-label">From pond to pack</span>
+              <ol class="story-process">
+                <li class="story-step">
+                  <span class="story-step-num">01</span>
+                  <div class="story-step-body">
+                    <strong>Sourced from lotus ponds</strong>
+                    <span>Premium lotus seeds chosen from trusted growers.</span>
+                  </div>
+                </li>
+                <li class="story-step">
+                  <span class="story-step-num">02</span>
+                  <div class="story-step-body">
+                    <strong>Hand-picked &amp; sorted</strong>
+                    <span>Only the cleanest, fullest seeds make the cut.</span>
+                  </div>
+                </li>
+                <li class="story-step">
+                  <span class="story-step-num">03</span>
+                  <div class="story-step-body">
+                    <strong>Slow-roasted in batches</strong>
+                    <span>Roasted to a light, even crunch — never burnt.</span>
+                  </div>
+                </li>
+                <li class="story-step">
+                  <span class="story-step-num">04</span>
+                  <div class="story-step-body">
+                    <strong>Sealed fresh</strong>
+                    <span>Packed straight after roasting to lock in the crunch.</span>
+                  </div>
+                </li>
+              </ol>
             </div>
             <div class="story-float-card">
               <div class="num">100%</div>
