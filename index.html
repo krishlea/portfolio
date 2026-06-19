@@ -592,6 +592,9 @@
       margin-bottom: 0.4rem;
       font-weight: 600;
       font-size: 1.5rem;
+      line-height: 1.1;
+      /* reserve up to 2 lines so titles of different lengths align */
+      min-height: 3.3rem;
     }
 
     .product-description {
@@ -599,6 +602,8 @@
       margin-bottom: 1.1rem;
       font-size: 0.9375rem;
       line-height: 1.6;
+      /* reserve 3 lines so chips + ingredients line up across cards */
+      min-height: 4.5rem;
     }
 
     /* Nutrition mini-grid */
@@ -798,6 +803,12 @@
       box-shadow: var(--shadow-sm);
       height: 100%;
       transition: all var(--transition-base);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .review-card .reviewer {
+      margin-top: auto;
     }
 
     .review-card:hover {
