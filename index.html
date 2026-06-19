@@ -911,6 +911,101 @@
       letter-spacing: -0.01em;
     }
 
+    /* === Certifications === */
+    .cert-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 2rem 2.5rem;
+      margin-top: 2.75rem;
+    }
+
+    .cert-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.85rem;
+      width: 168px;
+      transition: transform var(--transition-base);
+    }
+
+    .cert-item:hover {
+      transform: translateY(-6px);
+    }
+
+    /* uniform logo plate (handles any logo aspect ratio) */
+    .cert-seal {
+      width: 100%;
+      height: 92px;
+      padding: 0 1.4rem;
+      border-radius: var(--radius-md);
+      background: var(--white);
+      border: 0.5px solid rgba(0, 0, 0, 0.06);
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.1rem;
+      transition: box-shadow var(--transition-base);
+    }
+
+    .cert-item:hover .cert-seal {
+      box-shadow: var(--shadow-md);
+    }
+
+    .cert-seal .cert-ico {
+      font-size: 1.6rem;
+      line-height: 1;
+    }
+
+    .cert-seal .cert-abbr {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 1.35rem;
+      letter-spacing: 0.02em;
+      color: var(--primary);
+      line-height: 1;
+    }
+
+    /* real logo image */
+    .cert-seal .cert-logo {
+      max-height: 60px;
+      max-width: 128px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .cert-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      line-height: 1.3;
+    }
+
+    .cert-label b {
+      display: block;
+      color: var(--text-dark);
+      font-size: 0.8125rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      margin-bottom: 0.1rem;
+    }
+
+    .cert-num {
+      display: block;
+      margin-top: 0.3rem;
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      color: var(--primary);
+      text-transform: none;
+      word-break: break-all;
+    }
+
     /* === Footer === */
     footer {
       background: var(--cream-deep);
@@ -1481,11 +1576,11 @@
     <div class="container">
       <div class="row align-items-center g-5">
         <div class="col-lg-6 text-center text-lg-start animate-on-scroll">
-          <span class="hero-badge"><span class="dot"></span>🌿 100% Natural &amp; Preservative Free</span>
+          <span class="hero-badge"><span class="dot"></span>🌿 Premium Roasted Makhana</span>
           <h1 class="text-primary-custom mb-3 hero-title">Snack Better.<br><em>Live Better.</em></h1>
           <p class="lead text-muted-custom mb-4">
-            Handcrafted makhana snacks made from lotus seeds grown in the heartlands of India.
-            Clean ingredients, bold flavours, zero guilt.
+            Premium roasted makhana crafted from the finest lotus seeds of India.
+            Thoughtfully seasoned. Expertly roasted. Made for modern lifestyles.
           </p>
           <div class="d-flex gap-3 justify-content-center justify-content-lg-start flex-wrap">
             <a href="#products" class="btn btn-success btn-lg">Shop Now →</a>
@@ -1493,16 +1588,16 @@
           </div>
           <div class="hero-stats justify-content-center justify-content-lg-start">
             <div class="hero-stat">
-              <div class="num">12K+</div>
-              <div class="label">Happy Families</div>
+              <div class="num">8.6<small style="font-size:1.1rem;font-weight:600;">g</small></div>
+              <div class="label">Protein / 100g</div>
             </div>
             <div class="hero-stat">
-              <div class="num">0</div>
-              <div class="label">Preservatives</div>
+              <div class="num">7.1<small style="font-size:1.1rem;font-weight:600;">g</small></div>
+              <div class="label">Fiber / 100g</div>
             </div>
             <div class="hero-stat">
-              <div class="num">4.9★</div>
-              <div class="label">Average Rating</div>
+              <div class="num">100%</div>
+              <div class="label">Gluten Free</div>
             </div>
           </div>
         </div>
@@ -1520,9 +1615,8 @@
     <div class="container">
       <div class="trust-item"><span class="ico">🚚</span> Free shipping above ₹499</div>
       <div class="trust-item"><span class="ico">✅</span> FSSAI Certified</div>
-      <div class="trust-item"><span class="ico">🌿</span> No preservatives</div>
+      <div class="trust-item"><span class="ico">🔥</span> Roasted, not fried</div>
       <div class="trust-item"><span class="ico">📦</span> Delivered in 3–5 days</div>
-      <div class="trust-item"><span class="ico">↩️</span> Easy returns</div>
     </div>
   </div>
 
@@ -1530,65 +1624,116 @@
   <section id="why" class="bg-white">
     <div class="container">
       <div class="text-center mb-5 animate-on-scroll">
-        <span class="section-eyebrow">The Superfood You Need</span>
-        <h2 class="text-primary-custom">Why India's Smartest Snackers<br class="d-none d-md-block"> Are Switching to
-          Makhana</h2>
+        <span class="section-eyebrow">The Ancient Super Snack</span>
+        <h2 class="text-primary-custom">Why Makhana?</h2>
+        <p class="lead text-muted-custom mt-3" style="max-width: 640px; margin-left: auto; margin-right: auto;">
+          Makhana — also known as fox nuts or lotus seeds — has been enjoyed in India for centuries.
+          Naturally light, satisfying, and deliciously crunchy, it's a better alternative to conventional snacks.</p>
       </div>
       <div class="row g-4">
         <div class="col-lg-3 col-md-6 animate-on-scroll">
           <div class="fact-card">
             <div class="fact-icon">💪</div>
-            <div class="fact-num">9.7<small>g</small></div>
+            <div class="fact-num">8.6<small>g</small></div>
             <div class="fact-title">Protein per 100g</div>
-            <div class="fact-desc">More protein than most packaged snacks. Keeps you full for longer without the crash.
+            <div class="fact-desc">A good source of plant protein. Keeps you full for longer without the crash.
             </div>
           </div>
         </div>
         <div class="col-lg-3 col-md-6 animate-on-scroll">
           <div class="fact-card">
             <div class="fact-icon">🔥</div>
-            <div class="fact-num">347<small>kcal</small></div>
-            <div class="fact-title">Low in Calories</div>
-            <div class="fact-desc">Compare that to chips at 550+ kcal. You eat more, feel great, guilt stays away.</div>
+            <div class="fact-num">442<small>kcal</small></div>
+            <div class="fact-title">Calories per 100g</div>
+            <div class="fact-desc">Clean, satisfying energy from pure lotus seeds — roasted, never fried.</div>
           </div>
         </div>
         <div class="col-lg-3 col-md-6 animate-on-scroll">
           <div class="fact-card">
-            <div class="fact-icon">🦴</div>
-            <div class="fact-num">60<small>mg</small></div>
-            <div class="fact-title">Calcium per 100g</div>
-            <div class="fact-desc">Strong bones, healthy joints. Makhana is one of the richest plant calcium sources.
+            <div class="fact-icon">🌾</div>
+            <div class="fact-num">7.1<small>g</small></div>
+            <div class="fact-title">Dietary Fiber per 100g</div>
+            <div class="fact-desc">Rich in fiber to keep you fuller for longer and support healthy digestion.
             </div>
           </div>
         </div>
         <div class="col-lg-3 col-md-6 animate-on-scroll">
           <div class="fact-card">
-            <div class="fact-icon">🩺</div>
-            <div class="fact-num">Low<small> GI</small></div>
-            <div class="fact-title">Diabetic Friendly</div>
-            <div class="fact-desc">Low glycemic index means stable blood sugar. Safe and healthy for the whole family.
+            <div class="fact-icon">🪷</div>
+            <div class="fact-num">100<small>%</small></div>
+            <div class="fact-title">Gluten Free</div>
+            <div class="fact-desc">Naturally gluten free, low in fat, and 100% vegetarian — made from premium lotus seed.
             </div>
           </div>
+        </div>
+      </div>
+      <div class="trust-strip mt-5" style="background: transparent; border: none; padding: 0;">
+        <div class="container">
+          <div class="trust-item">🌿 Naturally Gluten-Free</div>
+          <div class="trust-item">💪 Good Source of Protein</div>
+          <div class="trust-item">🌾 Rich in Dietary Fiber</div>
+          <div class="trust-item">🔥 Roasted, Not Fried</div>
+          <div class="trust-item">❤️ Low in Fat</div>
+          <div class="trust-item">✨ Made from Lotus Seed</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why KrishLea -->
+  <section id="why-krishlea" class="bg-light-green">
+    <div class="container">
+      <div class="text-center mb-5 animate-on-scroll">
+        <span class="section-eyebrow">Why KrishLea</span>
+        <h2 class="text-primary-custom mb-3">The Smarter Snack Choice</h2>
+        <p class="lead text-muted-custom" style="max-width: 640px; margin: 0 auto;">Today's consumers deserve snacks that
+          taste great without compromise. Every KrishLea pack is crafted to deliver the perfect balance of flavour,
+          crunch, and quality.</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-lg-3 col-md-6 animate-on-scroll">
+          <div class="value-item"><div class="value-icon">🪷</div><div><strong>Premium Lotus Seeds</strong><span>Crafted from the finest hand-picked lotus seeds of India.</span></div></div>
+        </div>
+        <div class="col-lg-3 col-md-6 animate-on-scroll">
+          <div class="value-item"><div class="value-icon">🔥</div><div><strong>Roasted, Not Fried</strong><span>Expertly roasted for a clean, satisfying crunch.</span></div></div>
+        </div>
+        <div class="col-lg-3 col-md-6 animate-on-scroll">
+          <div class="value-item"><div class="value-icon">🌿</div><div><strong>Naturally Gluten Free</strong><span>A wholesome snack the whole family can enjoy.</span></div></div>
+        </div>
+        <div class="col-lg-3 col-md-6 animate-on-scroll">
+          <div class="value-item"><div class="value-icon">💪</div><div><strong>Good Source of Protein</strong><span>Plant protein and dietary fiber in every pack.</span></div></div>
+        </div>
+        <div class="col-lg-3 col-md-6 animate-on-scroll">
+          <div class="value-item"><div class="value-icon">🥬</div><div><strong>100% Vegetarian</strong><span>Honest, plant-based ingredients you can trust.</span></div></div>
+        </div>
+        <div class="col-lg-3 col-md-6 animate-on-scroll">
+          <div class="value-item"><div class="value-icon">✨</div><div><strong>Clean Ingredient Philosophy</strong><span>No junk, no shortcuts — just what belongs.</span></div></div>
+        </div>
+        <div class="col-lg-3 col-md-6 animate-on-scroll">
+          <div class="value-item"><div class="value-icon">❤️</div><div><strong>Source of Dietary Fiber</strong><span>Light, satisfying, and easy on digestion.</span></div></div>
+        </div>
+        <div class="col-lg-3 col-md-6 animate-on-scroll">
+          <div class="value-item"><div class="value-icon">🤝</div><div><strong>Crafted with Care</strong><span>Made to standards we'd serve our own families.</span></div></div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Products Section -->
-  <section id="products" class="bg-light-green">
+  <section id="products" class="bg-white">
     <div class="container">
       <div class="text-center mb-5 animate-on-scroll">
         <span class="section-eyebrow">Our Collection</span>
-        <h2 class="text-primary-custom mb-3">Handcrafted Flavours, Honest Ingredients</h2>
-        <p class="lead text-muted-custom" style="max-width: 600px; margin: 0 auto;">Roasted in small batches with spices
-          from a Bihar kitchen. Clean labels you can actually read.</p>
+        <h2 class="text-primary-custom mb-3">Premium Flavours. Honest Ingredients.</h2>
+        <p class="lead text-muted-custom" style="max-width: 600px; margin: 0 auto;">Discover a collection of thoughtfully
+          crafted flavours designed to elevate everyday snacking.</p>
       </div>
       <div class="row g-4" id="productsGrid"></div>
     </div>
   </section>
 
   <!-- Story / About -->
-  <section id="about" class="bg-white">
+  <section id="about" class="bg-light-green">
     <div class="container">
       <div class="row align-items-center g-5">
         <div class="col-lg-6 animate-on-scroll">
@@ -1597,40 +1742,40 @@
               <img src="images/himalayan.jpeg" alt="Krishlea Himalayan Salt makhana pack" class="story-pouch">
             </div>
             <div class="story-float-card">
-              <div class="num">2021</div>
-              <div class="label">Founded with love</div>
+              <div class="num">100%</div>
+              <div class="label">Honest Ingredients</div>
             </div>
           </div>
         </div>
         <div class="col-lg-6 animate-on-scroll">
           <span class="section-eyebrow">Our Story</span>
-          <h2 class="mb-4 text-primary-custom">Born in a Kitchen,<br>Built for Every Home</h2>
-          <p class="text-muted-custom mb-3">Krishlea started when our founder Priya couldn't find a healthy snack her
-            kids would actually enjoy. Everything on the shelf was either boring or packed with junk. So she started
-            making her own — roasting makhana with spices from her mother's kitchen in Bihar.</p>
-          <p class="text-muted-custom mb-4">Three years, 12,000 families, and three flavours later — we still make
-            every batch the same way. Small. Careful. With love.</p>
+          <h2 class="mb-4 text-primary-custom">Rooted in Tradition,<br>Crafted for Today</h2>
+          <p class="text-muted-custom mb-3">KrishLea was founded with a simple vision — to create snacks people can
+            trust. We source premium-quality lotus seeds and transform them into delicious roasted makhana using
+            carefully selected ingredients and uncompromising quality standards.</p>
+          <p class="text-muted-custom mb-4">Every pack reflects our commitment to honest ingredients, exceptional
+            taste, and a better snacking experience.</p>
 
           <div class="d-flex flex-column gap-3">
             <div class="value-item">
-              <div class="value-icon">🌾</div>
+              <div class="value-icon">🪷</div>
               <div>
-                <strong>Sourced from Bihar's Best Farms</strong>
-                <span>We work directly with lotus farmers in Darbhanga — fair prices, fresh produce, every time.</span>
+                <strong>Premium Lotus Seeds</strong>
+                <span>We source the finest lotus seeds and roast them to a clean, satisfying crunch.</span>
               </div>
             </div>
             <div class="value-item">
               <div class="value-icon">🧪</div>
               <div>
-                <strong>Lab Tested, FSSAI Approved</strong>
-                <span>Every batch is tested before it leaves our facility. What's on the label is what's inside.</span>
+                <strong>Uncompromising Standards</strong>
+                <span>Strict production standards ensure consistency, freshness, and exceptional taste in every batch.</span>
               </div>
             </div>
             <div class="value-item">
-              <div class="value-icon">♻️</div>
+              <div class="value-icon">✨</div>
               <div>
-                <strong>Minimal Packaging, Maximum Care</strong>
-                <span>Recyclable pouches, no plastic waste. Because the planet is part of the family too.</span>
+                <strong>Honest, Clean Ingredients</strong>
+                <span>What's on the label is what's inside — no junk, no shortcuts, ever.</span>
               </div>
             </div>
           </div>
@@ -1639,12 +1784,61 @@
     </div>
   </section>
 
-  <!-- Reviews -->
-  <section id="reviews" class="bg-light-green">
+  <!-- Our Promise -->
+  <section id="promise" class="bg-white">
+    <div class="container">
+      <div class="row justify-content-center text-center">
+        <div class="col-lg-8 animate-on-scroll">
+          <span class="section-eyebrow">Our Promise</span>
+          <h2 class="text-primary-custom mb-3">Quality Without Compromise</h2>
+          <p class="lead text-muted-custom mb-0">At KrishLea, quality comes first. From sourcing premium raw materials
+            to maintaining strict production standards, every step is carefully managed to ensure consistency,
+            freshness, and exceptional taste. We believe trust is earned through transparency, reliability, and
+            delivering excellence in every pack.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Perfect For Every Moment -->
+  <section id="moments" class="bg-light-green">
     <div class="container">
       <div class="text-center mb-5 animate-on-scroll">
-        <span class="section-eyebrow">Real Customers, Real Love</span>
-        <h2 class="text-primary-custom">12,000+ Families Trust Krishlea</h2>
+        <span class="section-eyebrow">For Every Moment</span>
+        <h2 class="text-primary-custom mb-3">The Perfect Companion</h2>
+        <p class="lead text-muted-custom" style="max-width: 640px; margin: 0 auto;">Whether you're working late,
+          travelling, hitting the gym, or spending time with family, KrishLea is the perfect companion for every
+          snack break.</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-lg-2 col-md-4 col-6 animate-on-scroll">
+          <div class="fact-card text-center"><div class="fact-icon">💼</div><div class="fact-title">Work Snacks</div></div>
+        </div>
+        <div class="col-lg-2 col-md-4 col-6 animate-on-scroll">
+          <div class="fact-card text-center"><div class="fact-icon">✈️</div><div class="fact-title">Travel Snacks</div></div>
+        </div>
+        <div class="col-lg-2 col-md-4 col-6 animate-on-scroll">
+          <div class="fact-card text-center"><div class="fact-icon">🍿</div><div class="fact-title">Movie Nights</div></div>
+        </div>
+        <div class="col-lg-2 col-md-4 col-6 animate-on-scroll">
+          <div class="fact-card text-center"><div class="fact-icon">🍵</div><div class="fact-title">Tea-Time Munching</div></div>
+        </div>
+        <div class="col-lg-2 col-md-4 col-6 animate-on-scroll">
+          <div class="fact-card text-center"><div class="fact-icon">🏃</div><div class="fact-title">On-the-Go Fuel</div></div>
+        </div>
+        <div class="col-lg-2 col-md-4 col-6 animate-on-scroll">
+          <div class="fact-card text-center"><div class="fact-icon">🌟</div><div class="fact-title">Everyday Indulgence</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reviews -->
+  <section id="reviews" class="bg-white">
+    <div class="container">
+      <div class="text-center mb-5 animate-on-scroll">
+        <span class="section-eyebrow">Customer Love</span>
+        <h2 class="text-primary-custom">Why Customers Choose KrishLea</h2>
       </div>
       <div class="row g-4">
         <div class="col-lg-4 animate-on-scroll">
@@ -1670,7 +1864,7 @@
               <div class="reviewer-avatar">👨</div>
               <div>
                 <div class="reviewer-name">Ramesh Agarwal</div>
-                <div class="reviewer-detail">Jaipur • Himalayan Salt Makhana</div>
+                <div class="reviewer-detail">Jaipur • Himalayan Salt &amp; Real Ghee</div>
               </div>
             </div>
           </div>
@@ -1693,8 +1887,24 @@
     </div>
   </section>
 
+  <!-- Our Mission -->
+  <section id="mission" class="bg-forest">
+    <div class="container">
+      <div class="row justify-content-center text-center">
+        <div class="col-lg-8 animate-on-scroll">
+          <span class="section-eyebrow" style="color: var(--accent);">Our Mission</span>
+          <h2 class="mb-3">Building a Brand You Can Trust</h2>
+          <p class="lead mb-4" style="opacity: 0.92;">Our mission is simple: to create premium snacks that combine
+            quality ingredients, exceptional taste, and complete transparency.</p>
+          <p class="lead mb-0" style="opacity: 0.92;">Every decision we make is guided by one principle —
+            deliver products we would proudly serve to our own families.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- FAQ -->
-  <section id="faq" class="bg-white">
+  <section id="faq" class="bg-light-green">
     <div class="container">
       <div class="text-center mb-5 animate-on-scroll">
         <span class="section-eyebrow">Good to Know</span>
@@ -1743,6 +1953,22 @@
                   for orders of 50 units or more and we'll put together custom pricing for you.</div>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="bg-white">
+    <div class="container">
+      <div class="row justify-content-center text-center">
+        <div class="col-lg-9 animate-on-scroll">
+          <div style="background: linear-gradient(135deg, var(--secondary) 0%, var(--secondary-dark) 100%); color: var(--white); border-radius: var(--radius-lg); padding: 3.5rem 2rem; box-shadow: var(--shadow-xl);">
+            <h2 class="mb-3">Ready to Snack Better?</h2>
+            <p class="lead mb-1" style="opacity: 0.95;">Discover premium roasted makhana crafted for modern lifestyles.</p>
+            <p class="lead mb-4" style="opacity: 0.95;">Taste the crunch. Experience the quality.</p>
+            <a href="#products" class="btn btn-success btn-lg">Shop Now →</a>
           </div>
         </div>
       </div>
@@ -1823,14 +2049,46 @@
     </div>
   </section>
 
+  <!-- Certifications -->
+  <section id="certifications" class="bg-white">
+    <div class="container">
+      <div class="text-center animate-on-scroll">
+        <span class="section-eyebrow">Certified &amp; Compliant</span>
+        <h2 class="text-primary-custom mb-3">Licensed, Registered &amp; Trusted</h2>
+        <p class="lead text-muted-custom" style="max-width: 620px; margin: 0 auto;">Every pack is made in a fully
+          licensed and registered facility, held to India's food-safety standards.</p>
+        <div class="cert-row">
+          <div class="cert-item">
+            <div class="cert-seal">
+              <img src="images/certs/fssai.png" alt="FSSAI certified" class="cert-logo">
+            </div>
+            <span class="cert-label"><b>FSSAI</b> Food Safety<span class="cert-num">Lic. 10425999000183</span></span>
+          </div>
+          <div class="cert-item">
+            <div class="cert-seal">
+              <img src="images/certs/udyam.svg" alt="Udyam MSME registered" class="cert-logo">
+            </div>
+            <span class="cert-label"><b>Udyam</b> MSME Registered<span class="cert-num">UDYAM-JH-20-0100116</span></span>
+          </div>
+          <div class="cert-item">
+            <div class="cert-seal">
+              <img src="images/certs/gst.png" alt="GST registered" class="cert-logo">
+            </div>
+            <span class="cert-label"><b>GST</b> Registered<span class="cert-num">GSTIN 20NMIPS2947K1ZG</span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Footer -->
   <footer>
     <div class="container">
       <div class="row g-4">
         <div class="col-lg-4 col-md-6">
           <a class="navbar-brand" href="#home" style="font-size: 1.6rem; color: var(--primary) !important;">Krish<span>lea</span></a>
-          <p class="footer-tagline mb-3">Handcrafted makhana snacks. Made with love, sourced with integrity, delivered
-            to your door.</p>
+          <p class="footer-tagline mb-3">Premium makhana crafted for better living. Honest ingredients,
+            expertly roasted. Made in India 🇮🇳</p>
           <div class="newsletter">
             <div class="footer-heading mb-2">Join the family</div>
             <form class="d-flex gap-2" id="newsletterForm">
@@ -1844,7 +2102,7 @@
           <ul class="footer-links">
             <li><a href="#products">Peri Peri Makhana</a></li>
             <li><a href="#products">Cream &amp; Onion</a></li>
-            <li><a href="#products">Himalayan Salt</a></li>
+            <li><a href="#products">Himalayan Salt &amp; Real Ghee</a></li>
             <li><a href="#products">Gift Bundles</a></li>
           </ul>
         </div>
@@ -1869,7 +2127,7 @@
       </div>
       <div class="footer-bottom">
         <span>© 2025 Krishlea. Naturally Yours.</span>
-        <span>FSSAI Lic. No. 12345678901234</span>
+        <span>FSSAI Lic. No. 10425999000183</span>
       </div>
     </div>
   </footer>
@@ -1939,9 +2197,9 @@
       {
         id: 1,
         name: "Peri Peri Makhana",
-        tagline: "Bold, fiery, and dangerously addictive. Our bestselling heat fix.",
+        tagline: "A bold blend of chilli, herbs, and spices — the perfect balance of heat and tanginess for adventurous bites.",
         price: 149,
-        weight: "50g",
+        weight: "42g",
         emoji: "🌶️",
         badge: "Bestseller",
         badgeClass: "",
@@ -1952,9 +2210,9 @@
       {
         id: 2,
         name: "Cream & Onion Makhana",
-        tagline: "Rich, savory, creamy — everything you loved about those chips, made right.",
+        tagline: "A smooth, savoury blend of creamy notes and onion seasoning. Comforting, satisfying, and irresistibly crunchy.",
         price: 149,
-        weight: "50g",
+        weight: "42g",
         emoji: "🧅",
         badge: null,
         badgeClass: "",
@@ -1964,16 +2222,16 @@
       },
       {
         id: 3,
-        name: "Himalayan Salt Makhana",
-        tagline: "When clean is the point. Just makhana, just salt, just perfect.",
-        price: 129,
-        weight: "50g",
+        name: "Himalayan Salt & Real Ghee Makhana",
+        tagline: "Pure Himalayan pink salt paired with rich, aromatic real ghee. Simple, authentic, and timeless.",
+        price: 149,
+        weight: "42g",
         emoji: "🧂",
         badge: "New",
         badgeClass: "badge-new",
         img: "images/himalayan.jpeg",
         nutrition: { protein: "8.6g", calories: "341kcal", fat: "2.2g", carbs: "76g" },
-        ingredients: "Makhana (lotus seeds), cold-pressed coconut oil, Himalayan pink salt."
+        ingredients: "Makhana (lotus seeds), real ghee, Himalayan pink salt."
       }
     ];
 
