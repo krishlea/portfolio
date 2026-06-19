@@ -2268,6 +2268,54 @@
     </div>
   </aside>
 
+  <!-- Checkout Information Modal -->
+  <div class="modal fade" id="checkoutModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="qv-body position-relative">
+          <button type="button" class="cart-close position-absolute" style="top: 1rem; right: 1rem;"
+            data-bs-dismiss="modal" aria-label="Close">✕</button>
+          <span class="section-eyebrow">Almost there</span>
+          <h3 class="product-title mb-1">Delivery details</h3>
+          <p class="text-muted-custom mb-4" style="font-size: 0.9375rem;">
+            Share your details so we can confirm and ship your order.</p>
+          <form id="checkoutForm" novalidate>
+            <div class="row g-3">
+              <div class="col-12">
+                <label class="form-label" for="coName">Full name</label>
+                <input type="text" class="form-control" id="coName" placeholder="Priya Sharma" required />
+              </div>
+              <div class="col-12">
+                <label class="form-label" for="coPhone">Phone number</label>
+                <input type="tel" class="form-control" id="coPhone" placeholder="98765 43210"
+                  pattern="[0-9 +\-]{10,15}" required />
+              </div>
+              <div class="col-12">
+                <label class="form-label" for="coAddress">Delivery address</label>
+                <textarea class="form-control" id="coAddress" rows="3"
+                  placeholder="House / flat, street, area" required></textarea>
+              </div>
+              <div class="col-8">
+                <label class="form-label" for="coCity">City</label>
+                <input type="text" class="form-control" id="coCity" placeholder="Bengaluru" required />
+              </div>
+              <div class="col-4">
+                <label class="form-label" for="coPin">PIN code</label>
+                <input type="text" class="form-control" id="coPin" placeholder="560001"
+                  pattern="[0-9]{6}" required />
+              </div>
+              <div class="col-12">
+                <label class="form-label" for="coNotes">Notes <span class="text-muted-custom">(optional)</span></label>
+                <input type="text" class="form-control" id="coNotes" placeholder="Any delivery instructions" />
+              </div>
+            </div>
+            <button type="submit" class="checkout-btn mt-4">📲 Confirm order via WhatsApp</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Quick View Modal -->
   <div class="modal fade" id="quickViewModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered">
@@ -2494,8 +2542,31 @@
     // WhatsApp business number (digits only, with country code — no +, spaces or dashes)
     const WHATSAPP_NUMBER = '918262970724';
 
+    let checkoutModal;
     function checkout() {
       if (cart.length === 0) return;
+      closeCart();
+      checkoutModal = checkoutModal || new bootstrap.Modal(document.getElementById('checkoutModal'));
+      checkoutModal.show();
+    }
+
+    function placeOrder(e) {
+      e.preventDefault();
+      const form = e.target;
+      if (!form.checkValidity()) {
+        form.classList.add('was-validated');
+        return;
+      }
+      if (cart.length === 0) return;
+
+      const customer = {
+        name: document.getElementById('coName').value.trim(),
+        phone: document.getElementById('coPhone').value.trim(),
+        address: document.getElementById('coAddress').value.trim(),
+        city: document.getElementById('coCity').value.trim(),
+        pin: document.getElementById('coPin').value.trim(),
+        notes: document.getElementById('coNotes').value.trim(),
+      };
 
       const subtotal = cart.reduce((s, i) => s + i.price * i.qty, 0);
       const shipping = subtotal >= 499 ? 0 : 49;
@@ -2508,13 +2579,20 @@
         `\n\nSubtotal: ₹${subtotal}` +
         `\nShipping: ${shipping === 0 ? 'FREE' : '₹' + shipping}` +
         `\n*Total: ₹${total}*` +
+        `\n\n*Delivery details*` +
+        `\nName: ${customer.name}` +
+        `\nPhone: ${customer.phone}` +
+        `\nAddress: ${customer.address}, ${customer.city} - ${customer.pin}` +
+        (customer.notes ? `\nNotes: ${customer.notes}` : '') +
         `\n\nPlease confirm availability and share payment details. Thank you!`;
 
       const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
       window.open(url, '_blank');
       showToast('📲 Opening WhatsApp to confirm your order...');
-      setTimeout(closeCart, 1200);
+      checkoutModal && checkoutModal.hide();
     }
+
+    document.getElementById('checkoutForm').addEventListener('submit', placeOrder);
 
     // ── TOAST ──
     let toastTimer;
