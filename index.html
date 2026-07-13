@@ -334,6 +334,32 @@
       50% { opacity: 0.3; }
     }
 
+    .monsoon-banner {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: linear-gradient(135deg, #1e5631, #2e8b57);
+      color: #fff;
+      padding: 0.55rem 1.15rem;
+      border-radius: 980px;
+      font-size: 0.875rem;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      margin-bottom: 1.25rem;
+      box-shadow: 0 6px 20px rgba(30, 86, 49, 0.28);
+    }
+
+    .monsoon-banner .rain {
+      font-size: 1rem;
+      animation: pulse 1.8s infinite;
+    }
+
+    .monsoon-banner strong {
+      background: rgba(255, 255, 255, 0.2);
+      padding: 0.1rem 0.45rem;
+      border-radius: 6px;
+    }
+
     .hero-title em {
       font-style: italic;
       color: var(--secondary-dark);
@@ -675,6 +701,33 @@
       font-weight: 700;
       color: var(--primary);
       line-height: 1;
+    }
+
+    .price-row {
+      display: flex;
+      align-items: baseline;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .price-mrp {
+      font-family: var(--font-heading);
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-decoration: line-through;
+      text-decoration-thickness: 2px;
+    }
+
+    .price-off {
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: #fff;
+      background: linear-gradient(135deg, #2e8b57, #3cb371);
+      padding: 0.15rem 0.45rem;
+      border-radius: 999px;
+      letter-spacing: 0.02em;
+      white-space: nowrap;
     }
 
     .product-weight {
@@ -1665,6 +1718,8 @@
     <div class="container">
       <div class="row align-items-center g-5">
         <div class="col-lg-6 text-center text-lg-start animate-on-scroll">
+          <div class="monsoon-banner"><span class="rain">🌧️</span> Monsoon Sale — everything just <strong>₹99</strong></div>
+          <br>
           <span class="hero-badge"><span class="dot"></span>🌿 Premium Roasted Makhana</span>
           <h1 class="text-primary-custom mb-3 hero-title">Snack Better.<br><em>Live Better.</em></h1>
           <p class="lead text-muted-custom mb-4">
@@ -2365,7 +2420,8 @@
         id: 1,
         name: "Peri Peri Makhana",
         tagline: "A bold blend of chilli, herbs, and spices — the perfect balance of heat and tanginess for adventurous bites.",
-        price: 149,
+        price: 99,
+        mrp: 149,
         weight: "42g",
         emoji: "🌶️",
         badge: "Bestseller",
@@ -2378,7 +2434,8 @@
         id: 2,
         name: "Cream & Onion Makhana",
         tagline: "A smooth, savoury blend of creamy notes and onion seasoning. Comforting, satisfying, and irresistibly crunchy.",
-        price: 149,
+        price: 99,
+        mrp: 149,
         weight: "42g",
         emoji: "🧅",
         badge: null,
@@ -2391,7 +2448,8 @@
         id: 3,
         name: "Himalayan Salt & Real Ghee Makhana",
         tagline: "Pure Himalayan pink salt paired with rich, aromatic real ghee. Simple, authentic, and timeless.",
-        price: 149,
+        price: 99,
+        mrp: 149,
         weight: "42g",
         emoji: "🧂",
         badge: "New",
@@ -2440,7 +2498,10 @@
               </details>
               <div class="product-footer">
                 <div>
-                  <div class="product-price">₹${p.price}</div>
+                  <div class="price-row">
+                    <div class="product-price">₹${p.price}</div>
+                    ${p.mrp ? `<span class="price-mrp">₹${p.mrp}</span><span class="price-off">${Math.round((1 - p.price / p.mrp) * 100)}% OFF</span>` : ''}
+                  </div>
                   <div class="product-weight">${p.weight} pack</div>
                 </div>
                 <button class="btn-add-cart" onclick="addToCart(${p.id})">Add to Cart</button>
@@ -2667,7 +2728,7 @@
       document.getElementById('qvName').textContent = p.name;
       document.getElementById('qvDesc').textContent = p.tagline;
       document.getElementById('qvIngredients').textContent = p.ingredients;
-      document.getElementById('qvPrice').textContent = `₹${p.price}`;
+      document.getElementById('qvPrice').innerHTML = `<span class="price-row"><span>₹${p.price}</span>${p.mrp ? `<span class="price-mrp">₹${p.mrp}</span><span class="price-off">${Math.round((1 - p.price / p.mrp) * 100)}% OFF</span>` : ''}</span>`;
       document.getElementById('qvWeight').textContent = `${p.weight} pack`;
       document.getElementById('qvNutri').innerHTML = `
         <div class="nutri-cell"><div class="v">${p.nutrition.protein}</div><div class="k">Protein</div></div>
